@@ -1,0 +1,33 @@
+﻿@model IEnumerable<E_shop.Models.ProduktTabel>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h1> DATABASE VÆRDIER </h1>
+
+@foreach (E_shop.Models.ProduktTabel item in Model)
+{
+    <table>
+        <tr style="border: solid; outline: 1px;">
+            @{
+                var billede = System.Convert.ToBase64String(item.Image);
+                var imgsrc = string.Format("data:image/gif;base64,{0}", billede);
+            }
+            <td> <img src='@imgsrc' style=" width: 100px; height: 100px;" /></td>
+
+            <td> @item.ProduktNavn</td>
+
+        @{
+            double num = (int.Parse(item.Pris) / 1.5);
+            string numStr = String.Format("{0:0.00}", num);
+                }
+        <td>      @item.Pris kr. <br /> @numStr kr.</td>
+
+
+            <td>  <input type="submit" onclick="Køb()" value="KØB" class="btn btn-default" /></td>
+
+
+        </tr>
+    </table>
+}
