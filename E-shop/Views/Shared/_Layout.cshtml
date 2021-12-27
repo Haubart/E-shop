@@ -34,7 +34,14 @@
                         <div class="header__icon">
                             <div id="minibasket" data-customerid="">
                                 <form action="/Basket" class="form-horizontal" method="get" novalidate="novalidate">
-                                    <button type="submit" class="btn__no-style w-100" id="btnBasket"><i class="pi-sm pi-basket m-auto position-relative" style="display: block;"><small data-minibasketlinecount=""><small class="header__number-basket" data-bind="text: BasketContent().itemCount">0</small></small></i><p class="hidden-xs hidden-sm header__text m-0" data-minibasketprice="" data-toggle="tooltip" data-placement="bottom"><div class="text-center" data-bind="autoNumeric: BasketContent().totalWithVat">0,00 kr.</div></p><p class="hidden-md hidden-lg header__text m-0">Kurv</p></button>
+                                    <button type="submit" class="btn__no-style w-100" id="btnBasket">
+                                    <i class="pi-sm pi-basket m-auto position-relative" style="display: block;">
+                                        <small data-minibasketlinecount="">
+                                        <small class="header__number-basket" data-bind="text: BasketContent().itemCount">0</small>
+                                            </small></i>
+                                    <p class="hidden-xs hidden-sm header__text m-0" data-minibasketprice="" data-toggle="tooltip" data-placement="bottom">
+                                        <div class="text-center" data-bind="autoNumeric: BasketContent().totalWithVat">0,00 kr.</div>
+                                        </p><p class="hidden-md hidden-lg header__text m-0">Kurv</p></button>
                                 </form>
                             </div>
                         </div>

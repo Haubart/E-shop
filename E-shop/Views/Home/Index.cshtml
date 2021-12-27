@@ -9,7 +9,7 @@
 @foreach (E_shop.Models.ProduktTabel item in Model)
 {
     <table>
-        <tr style="border: solid; outline: 1px;">
+        <tr style="border: solid 0.1px; ">
             @{
                 var billede = System.Convert.ToBase64String(item.Image);
                 var imgsrc = string.Format("data:image/gif;base64,{0}", billede);
