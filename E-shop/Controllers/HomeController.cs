@@ -30,7 +30,14 @@ namespace E_shop.Controllers
             return View();
         }
 
-    
+        public ActionResult Opret()
+        {
+            return View();
+        }
+
+        [HttpPost]
+
+
 
         public ActionResult AddImage()
         {
