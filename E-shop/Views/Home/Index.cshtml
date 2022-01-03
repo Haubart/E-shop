@@ -6,6 +6,16 @@
 
 <h1> DATABASE VÆRDIER </h1>
 
+@if (Model.Count() == 0)
+            {
+            <tr>
+                <td>
+                    Intet matchede dit søge resultat
+                </td>
+            </tr>
+            }
+
+
 @foreach (E_shop.Models.ProduktTabel item in Model)
 {
     <table>

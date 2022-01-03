@@ -7,13 +7,17 @@ using System.Web.Mvc;
 
 namespace E_shop.Controllers
 {
+
+
     public class HomeController : Controller
     {
-        public ActionResult Index()
+       public DatabaseEntities db = new DatabaseEntities();
+
+        public ActionResult Index(ProduktTabel model, string searching)
         {
             DatabaseEntities dbe = new DatabaseEntities();
 
-            return View(dbe.ProduktTabel.ToList());
+            return View(dbe.ProduktTabel.Where(x => x.ProduktNavn.Contains(searching) || searching == null).ToList());
         }
 
         public ActionResult About()
@@ -55,8 +59,6 @@ namespace E_shop.Controllers
         [HttpPost]
         public ActionResult AddImage(ProduktTabel model, HttpPostedFileBase image1, string searching )
         {
-            DatabaseEntities db1 = new DatabaseEntities();
-
             var db = new DatabaseEntities();
 
             if (image1 != null) // hvis den ikke er lig med null
@@ -64,7 +66,9 @@ namespace E_shop.Controllers
                 model.Image = new byte[image1.ContentLength];
                 image1.InputStream.Read(model.Image, 0, image1.ContentLength);
             }
-            db.ProduktTabel.Where(x => x.ProduktNavn.Contains(searching) || searching == null);
+         
+            
+          
             db.ProduktTabel.Add(model);
             try
             {
