@@ -42,7 +42,7 @@ namespace E_shop.Controllers
             return View();
         }
 
-        [HttpPost]
+       
 
 
 
@@ -53,8 +53,10 @@ namespace E_shop.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddImage(ProduktTabel model, HttpPostedFileBase image1)
+        public ActionResult AddImage(ProduktTabel model, HttpPostedFileBase image1, string searching )
         {
+            DatabaseEntities db1 = new DatabaseEntities();
+
             var db = new DatabaseEntities();
 
             if (image1 != null) // hvis den ikke er lig med null
@@ -62,9 +64,8 @@ namespace E_shop.Controllers
                 model.Image = new byte[image1.ContentLength];
                 image1.InputStream.Read(model.Image, 0, image1.ContentLength);
             }
-
-            db.ProduktTabel.Add(model);          
-            
+            db.ProduktTabel.Where(x => x.ProduktNavn.Contains(searching) || searching == null);
+            db.ProduktTabel.Add(model);
             try
             {
                 db.SaveChanges();
@@ -87,6 +88,7 @@ namespace E_shop.Controllers
                 throw raise;
             }
             return View(model);
+            
 
         }
     }
