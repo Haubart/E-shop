@@ -11,7 +11,7 @@
     <link href="~/Content/Site.css" rel="stylesheet" />
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top navbar-expand-sm" style="background-color: white; width: 1000px; margin: auto;">
+    <nav class="navbar navbar-inverse navbar-fixed-top navbar-expand-sm" style="background-color: white; width: 1000px; margin: auto; height: 80px; border-right: solid; border-left: solid; border-bottom: solid;">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -20,7 +20,8 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand icon" href="@Url.Action("Index", "Home")">
-                    <img src="~/Billeder/graphics-card (1).svg" style="height: 100px; width: 100px; margin-top: auto; margin-bottom: auto; margin-right: 50px;" />
+
+                    <img src="~/Billeder/instagram.svg" style="height: 50px; width: 50px; margin-top: auto; margin-bottom: auto; margin-right: 50px;"/>
                 </a>
                 @Html.ActionLink("Hjemmesidens navn", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
@@ -29,7 +30,11 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- indsæt billeder-->
                     <li style="margin-top: auto; margin-bottom: auto; margin-right: 50px;"> <input id="search" type="search" placeholder="Søg..." /></li>
-                    <li style="margin-top: auto; margin-bottom: auto; margin-right: 50px;">Support</li>
+                    <li style="margin-top: auto; margin-bottom: auto; margin-right: 50px;">
+                        <a class="navbar-brand icon" href="@Url.Action("Support", "Home")">
+                            Support
+                        </a>
+                    </li>
                     <li style="margin-top: auto; margin-bottom: auto; margin-right: 50px;">
                         <div class="header__icon">
                             <div id="minibasket" data-customerid="">
@@ -46,7 +51,10 @@
                             </div>
                         </div>
                     </li>
-                    <li style="margin-top: auto; margin-bottom: auto; margin-right: 50px;">Log ind</li>
+                    <li style="margin-top: auto; margin-bottom: auto; margin-right: 50px;">
+                        <a class="navbar-brand icon" href="@Url.Action("Opret", "Home")">Log Ind
+                            </a>
+                    </li>
                 </ul>
             </div>
         </div>

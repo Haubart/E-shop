@@ -227,6 +227,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\AddImage.cshtml" />
     <Content Include="Views\Home\Opret.cshtml" />
+    <Content Include="Views\Home\Support.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

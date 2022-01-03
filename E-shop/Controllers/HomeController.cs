@@ -30,6 +30,13 @@ namespace E_shop.Controllers
             return View();
         }
 
+        public ActionResult Support()
+        {
+            ViewBag.Message = "Your Shit page.";
+
+            return View();
+        }
+
         public ActionResult Opret()
         {
             return View();
