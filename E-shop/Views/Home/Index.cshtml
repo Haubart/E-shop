@@ -1,5 +1,51 @@
 ﻿@model IEnumerable<E_shop.Models.ProduktTabel>
 
+<br />
+<br />
+@using (Html.BeginForm("Index", "Home", FormMethod.Get))
+{
+    @Html.TextBox("searching")
+    <input type="submit" value="Search" />
+}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Image</th>
+            <th>ProduktBeskrivelse</th>
+            <th>ProduktNavn</th>
+            <th>Pris</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Count() == 0)
+        {
+            <tr>
+                <td colspan="3" style="color:red">
+                    No Match Any Document
+                </td>
+            </tr>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+    <tr>
+        <td>@item.Id</td>
+        @{
+            var billede = System.Convert.ToBase64String(item.Image);
+            var imgsrc = string.Format("data:image/gif;base64,{0}", billede);
+        }
+        <td> <img src='@imgsrc' style=" width: 100px; height: 100px;" /></td>
+        <td>@item.ProduktBeskrivelse</td>
+        <td>@item.ProduktNavn</td>
+        <td>@item.Pris</td>
+    </tr>
+            }
+        }
+    </tbody>
+</table>
+
 @{
     ViewBag.Title = "Home Page";
 }
@@ -7,15 +53,15 @@
 <h1> DATABASE VÆRDIER </h1>
 
 @if (Model.Count() == 0)
-            {
-            <tr>
-                <td>
-                    Intet matchede dit søge resultat
-                </td>
-            </tr>
-            }
+{
+    <tr>
+        <td>
+            Intet matchede dit søge resultat
+        </td>
+    </tr>
+}
 
-
+<!--
 @foreach (E_shop.Models.ProduktTabel item in Model)
 {
     <table>
@@ -41,7 +87,7 @@
         </tr>
     </table>
 }
-
+    -->
 <body>
 
 </body>
