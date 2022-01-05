@@ -42,11 +42,38 @@ namespace E_shop.Controllers
             return View();
         }
 
-       
+        [HttpPost]
+        public ActionResult Opret(Bruger model, HttpPostedFileBase profil)
+        {
+
+            var db = new DatabaseEntities();
+            db.Bruger.Add(model);
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
+            {
+                Exception raise = dbEx;
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        string message = string.Format("{0}:{1}",
+                            validationErrors.Entry.Entity.ToString(),
+                            validationError.ErrorMessage);
+                        // raise a new exception nesting
+                        // the current instance as InnerException
+                        raise = new InvalidOperationException(message, raise);
+                    }
+                }
+                throw raise;
+            }
+            return View(model);
+        }
 
 
-
-        public ActionResult AddImage()
+            public ActionResult AddImage()
         {
             ProduktTabel b1 = new ProduktTabel();
             return View(b1);
@@ -64,7 +91,6 @@ namespace E_shop.Controllers
                 model.Image = new byte[image1.ContentLength];
                 image1.InputStream.Read(model.Image, 0, image1.ContentLength);
             }
-            db.ProduktTabel.Where(x => x.ProduktNavn.Contains(searching) || searching == null);
             db.ProduktTabel.Add(model);
             try
             {
