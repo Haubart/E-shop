@@ -24,7 +24,7 @@
                 var billede = System.Convert.ToBase64String(item.Image);
                 var imgsrc = string.Format("data:image/gif;base64,{0}", billede);
             }
-            <td> <img src='@imgsrc' style=" width: 100px; height: 100px;" /></td>
+            <td> <a> <img src='@imgsrc' style=" width: 100px; height: 100px;" /> </a> </td>
 
             <td> @item.ProduktNavn</td>
 
