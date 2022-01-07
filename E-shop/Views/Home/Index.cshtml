@@ -26,7 +26,6 @@
             foreach (var item in Model)
             {
     <tr>
-        <td>@item.Id</td>
         @{
             var billede = System.Convert.ToBase64String(item.Image);
             var imgsrc = string.Format("data:image/gif;base64,{0}", billede);
