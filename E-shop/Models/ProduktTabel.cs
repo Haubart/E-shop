@@ -14,7 +14,6 @@ namespace E_shop.Models
     
     public partial class ProduktTabel
     {
-        public int Id { get; set; }
         public byte[] Image { get; set; }
         public string ProduktBeskrivelse { get; set; }
         public string ProduktNavn { get; set; }
