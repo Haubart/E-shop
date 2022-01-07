@@ -40,6 +40,7 @@
         <td>@item.ProduktBeskrivelse</td>
         <td>@item.ProduktNavn</td>
         <td>@item.Pris</td>
+        <td> <input type="button" value="Køb" onclick="kurv()" /> </td>
     </tr>
             }
         }
@@ -61,33 +62,15 @@
     </tr>
 }
 
-<!--
-@foreach (E_shop.Models.ProduktTabel item in Model)
-{
-    <table>
-        <tr style="border: solid 0.1px; ">
-            @{
-                var billede = System.Convert.ToBase64String(item.Image);
-                var imgsrc = string.Format("data:image/gif;base64,{0}", billede);
-            }
-            <td> <a> <img src='@imgsrc' style=" width: 100px; height: 100px;" /> </a> </td>
-
-            <td> @item.ProduktNavn</td>
-
-        @{
-            double num = (int.Parse(item.Pris) / 1.5);
-            string numStr = String.Format("{0:0.00}", num);
-                }
-        <td>      @item.Pris kr. <br /> @numStr kr.</td>
 
 
-            <td>  <input type="submit" onclick="Køb()" value="KØB" class="btn btn-default" /></td>
 
 
-        </tr>
-    </table>
-}
-    -->
-<body>
+<script type="text/javascript">
 
-</body>
+
+    function kurv() {
+        window.open('@Url.Action("Kurv", "Home")');
+    }
+
+</script>

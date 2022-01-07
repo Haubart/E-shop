@@ -26,6 +26,7 @@ namespace E_shop.Models
         }
     
         public virtual DbSet<Bruger> Bruger { get; set; }
+        public virtual DbSet<Kurv> Kurv { get; set; }
         public virtual DbSet<ProduktTabel> ProduktTabel { get; set; }
     }
 }

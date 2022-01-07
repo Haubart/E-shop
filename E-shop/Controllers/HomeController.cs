@@ -16,6 +16,21 @@ namespace E_shop.Controllers
             return View(dbe.ProduktTabel.Where(x => x.ProduktNavn.Contains(searching) || searching == null));
         }
 
+        public ActionResult Kurv(Kurv kurv, ProduktTabel produkt)
+        {
+            var db = new DatabaseEntities();
+
+            
+            produkt.ProduktNavn = kurv.ProduktNavn;
+            produkt.Image = kurv.Image;
+            produkt.Pris = kurv.Pris;
+
+
+            return View();
+        } 
+
+
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
