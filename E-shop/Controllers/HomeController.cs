@@ -9,11 +9,11 @@ namespace E_shop.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index(string searching)
         {
             DatabaseEntities dbe = new DatabaseEntities();
-
-            return View(dbe.ProduktTabel.ToList());
+            
+            return View(dbe.ProduktTabel.Where(x => x.ProduktNavn.Contains(searching) || searching == null));
         }
 
         public ActionResult About()
