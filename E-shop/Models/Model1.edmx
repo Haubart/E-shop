@@ -21,6 +21,16 @@
           <Property Name="Telefon" Type="nvarchar" MaxLength="50" />
           <Property Name="Land" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="Kurv">
+          <Key>
+            <PropertyRef Name="Order_ID" />
+          </Key>
+          <Property Name="Order_ID" Type="int" Nullable="false" />
+          <Property Name="ProduktNavn" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Pris" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Antal" Type="nvarchar(max)" />
+          <Property Name="Image" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="ProduktTabel">
           <Key>
             <PropertyRef Name="Id" />
@@ -33,6 +43,7 @@
         </EntityType>
         <EntityContainer Name="DatabaseModelStoreContainer">
           <EntitySet Name="Bruger" EntityType="Self.Bruger" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kurv" EntityType="Self.Kurv" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProduktTabel" EntityType="Self.ProduktTabel" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
@@ -56,6 +67,16 @@
           <Property Name="Telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Land" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="Kurv">
+          <Key>
+            <PropertyRef Name="Order_ID" />
+          </Key>
+          <Property Name="Order_ID" Type="Int32" Nullable="false" />
+          <Property Name="ProduktNavn" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Pris" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Antal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         <EntityType Name="ProduktTabel">
           <Key>
             <PropertyRef Name="Id" />
@@ -68,6 +89,7 @@
         </EntityType>
         <EntityContainer Name="DatabaseEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Bruger" EntityType="Self.Bruger" />
+          <EntitySet Name="Kurv" EntityType="Self.Kurv" />
           <EntitySet Name="ProduktTabel" EntityType="Self.ProduktTabel" />
         </EntityContainer>
       </Schema>
@@ -90,6 +112,17 @@
                 <ScalarProperty Name="By" ColumnName="By" />
                 <ScalarProperty Name="Telefon" ColumnName="Telefon" />
                 <ScalarProperty Name="Land" ColumnName="Land" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kurv">
+            <EntityTypeMapping TypeName="DatabaseModel.Kurv">
+              <MappingFragment StoreEntitySet="Kurv">
+                <ScalarProperty Name="Order_ID" ColumnName="Order_ID" />
+                <ScalarProperty Name="ProduktNavn" ColumnName="ProduktNavn" />
+                <ScalarProperty Name="Pris" ColumnName="Pris" />
+                <ScalarProperty Name="Antal" ColumnName="Antal" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
