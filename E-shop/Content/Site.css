@@ -28,3 +28,10 @@ textarea {
     padding-left: 150px;
     padding-right: 150px;
 }
+
+.sort-tekst{
+    color: black!important;
+}
+    .sort-tekst:hover{
+        text-decoration: underline;
+    }

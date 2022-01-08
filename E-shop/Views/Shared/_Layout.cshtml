@@ -19,48 +19,73 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand icon" href="@Url.Action("Index", "Home")">
-
-                    <img src="~/Billeder/instagram.svg" style="height:40px; width: 40px; margin-right: 50px; position: relative; top:-10px;"/>
+                <a class="navbar-brand icon" href="@Url.Action("Index", "Home")" style=" display: flex; justify-content: center; align-items: center;">
+                    <img src="~/Billeder/flash-rød.svg" style="height:40px; width: 40px; margin-right: 20px;" />
+                    <h1 class="sort-tekst" style="margin: 0px; font-size: 25px; font-weight: bold;">LightningTech</h1>
                 </a>
-                @Html.ActionLink("Hjemmesidens navn", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+                    
+
+
+
+                @*@Html.ActionLink("GiantTech", "Index", "Home", new { area = "" }, new { @class = "navbar-brand sort-tekst" })*@ <!--for at komme ud af kommenterings'mode' så tryk ctrl k+u og for at kommentere det igen tryk ctrl k+c-->
             </div>
 
             <div class="navbar-collapse collapse navbar-expand-sm">
                 <ul class="nav navbar-nav navbar-right">
-                    <!-- indsæt billeder-->
-                    <li style="margin-top:auto; margin-bottom: auto; margin-right: 50px; placeholder="Søg..."">
+                    <img src="~/Billeder/magnifying-glass.svg" style="height: 25px; width: 25px; margin-right: 5px; margin-top: auto; margin-bottom: auto;" />
+                    <li style="margin-top: auto; margin-bottom: auto; margin-right: 50px;" placeholder="Søg...">
                         @using (Html.BeginForm("Index", "Home", FormMethod.Get))
                         {
                             @Html.TextBox("searching")
                             <input type="submit" value="Search" />
                         }
-                   </li>
-                   <li style="margin-top: auto; margin-bottom: auto; margin-right: 50px;">
+                    </li>
+
+                    <li style="margin-top: auto; margin-bottom: auto; margin-right: 50px;">
                         <a class="navbar-brand icon" href="@Url.Action("Support", "Home")">
-                            Support
+                            <div style=" height: 60px; position: relative; top: -20px;">
+                                <img src="~/Billeder/headset.svg" style="height: 40px; width: 40px; display: block; margin-left: auto; margin-right: auto; width: 99%;" />
+                                <p class="sort-tekst" style="font-size: 15px;">
+                                    Support
+                                </p>
+                            </div>
                         </a>
                     </li>
+
+                    <li style="margin-top: auto; margin-bottom: auto; margin-right: 50px;">
+                        <a class="navbar-brand icon" href="@Url.Action("Opret", "Home")">
+                            <div style="height: 60px; position: relative; top: -20px;">
+                                <img src="~/Billeder/user.svg" style="height: 40px; width: 40px; display: block; margin-left: auto; margin-right: auto; width: 99%;" />
+                                <p class="sort-tekst" style="font-size: 15px;">
+                                    Log ind
+                                </p>
+                            </div>
+
+                        </a>
+                    </li>
+
                     <li style="margin-top: auto; margin-bottom: auto; margin-right: 50px;">
                         <div class="header__icon">
                             <div id="minibasket" data-customerid="">
                                 <form action="/Basket" class="form-horizontal" method="get" novalidate="novalidate">
                                     <button type="submit" class="btn__no-style w-100" id="btnBasket">
-                                    <i class="pi-sm pi-basket m-auto position-relative" style="display: block;">
-                                        <small data-minibasketlinecount="">
-                                        <small class="header__number-basket" data-bind="text: BasketContent().itemCount">0</small>
-                                            </small></i>
-                                    <p class="hidden-xs hidden-sm header__text m-0" data-minibasketprice="" data-toggle="tooltip" data-placement="bottom">
-                                        <div class="text-center" data-bind="autoNumeric: BasketContent().totalWithVat">0,00 kr.</div>
-                                        </p><p class="hidden-md hidden-lg header__text m-0">Kurv</p></button>
+                                        <i class="pi-sm pi-basket m-auto position-relative" style="display: block;">
+                                            <small data-minibasketlinecount="">
+                                                <small class="header__number-basket" data-bind="text: BasketContent().itemCount">0</small>
+                                            </small>
+                                        </i>
+                                        <p class="hidden-xs hidden-sm header__text m-0" data-minibasketprice="" data-toggle="tooltip" data-placement="bottom">
+                                            <div class="text-center" data-bind="autoNumeric: BasketContent().totalWithVat">0,00 kr.</div>
+                                        </p><p class="hidden-md hidden-lg header__text m-0">Kurv</p>
+                                    </button>
                                 </form>
                             </div>
                         </div>
                     </li>
-                    <li style="margin-top: auto; margin-bottom: auto;">
-                        <a class="navbar-brand icon" href="@Url.Action("Opret", "Home")">Log Ind
-                            </a>
-                    </li>
+
+
+
                 </ul>
             </div>
         </div>
@@ -120,8 +145,8 @@
                         <div class="col-sm-6">
                             <h4 style="font-weight:bold;"><br />Find os her:</h4>
                             <br />
-                            <p><img src="~/Billeder/instagram.svg" style="width:auto; height:auto; max-width:50px; max-height:40px;" /><a>Instagram: NAVN</a></p>
-                            <p><img src="~/Billeder/facebook-app-symbol.svg" style="width:auto; height:auto; max-width:50px; max-height:40px;" />Facebook: NAVN</p>
+                            <p><img src="~/Billeder/instagram.svg" style="width:auto; height:auto; max-width:50px; max-height:40px;" /><a>Instagram: LightningTech</a></p>
+                            <p><img src="~/Billeder/facebook-app-symbol.svg" style="width:auto; height:auto; max-width:50px; max-height:40px;" />Facebook: LightningTech</p>
                         </div>
                     </div>
                 </div>
