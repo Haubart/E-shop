@@ -27,9 +27,12 @@ namespace E_shop.Controllers
 
 
             return View();
-        } 
+        }
 
-
+        public ActionResult Test()
+        {
+            return View();
+        }
 
         public ActionResult About()
         {

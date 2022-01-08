@@ -234,6 +234,7 @@
     <Content Include="Views\Home\Opret.cshtml" />
     <Content Include="Views\Home\Support.cshtml" />
     <Content Include="Views\Home\Kurv.cshtml" />
+    <Content Include="Views\Home\Test.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
