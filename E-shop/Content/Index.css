@@ -1,0 +1,12 @@
+﻿body {
+}
+
+.category 
+{
+    background: linear-gradient(to top, #FE2D66, #FE4550, #FE5D3B);
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
