@@ -9,21 +9,32 @@ namespace E_shop.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index(string searching)
+        public ActionResult Index(string searching, string button)
         {
             DatabaseEntities dbe = new DatabaseEntities();
-            
+
+            string ok = button;
+
             return View(dbe.ProduktTabel.Where(x => x.ProduktNavn.Contains(searching) || searching == null));
         }
 
-        public ActionResult Kurv(Kurv kurv, ProduktTabel produkt)
+        [HttpPost]
+        public ActionResult Index(Kurv kurv, ProduktTabel produkt )
         {
-            var db = new DatabaseEntities();
 
             
+            var db = new DatabaseEntities();
             produkt.ProduktNavn = kurv.ProduktNavn;
             produkt.Image = kurv.Image;
             produkt.Pris = kurv.Pris;
+            return View();
+        }
+        public ActionResult Kurv()
+        {
+         
+
+            
+    
 
 
             return View();

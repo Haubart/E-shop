@@ -15,3 +15,11 @@
     background: linear-gradient(to top, #FE5D3B, #FE4550, #FE2D66);
     text-decoration: none;
 }
+.kurvknap {
+    border: none;
+    background-color: transparent;
+}
+.kurvknap1 {
+    border: none;
+    background-color: green;
+}
