@@ -92,8 +92,33 @@ namespace E_shop.Controllers
             return View(model);
         }
 
+        /*Nedenstående er til test*/
+        [HttpPost]
+        public ActionResult Login(Bruger reg)
+        {
+            
+                var db = new DatabaseEntities();
 
-            public ActionResult AddImage()
+            if (ModelState.IsValid)
+            {
+
+                if (db.Bruger.Where(x => x.Mail == reg.Mail).Any())
+                {
+                    //Do what do u need to do...
+                }
+                else
+                {
+                    db.SaveChanges();
+
+                    return RedirectToAction("Login");
+                }
+            }
+            return View();
+        }
+        /*ovenstående er til test*/
+
+
+        public ActionResult AddImage()
         {
             ProduktTabel b1 = new ProduktTabel();
             return View(b1);
