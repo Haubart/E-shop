@@ -1,12 +1,17 @@
 ﻿body {
 }
 
-.category 
-{
+.category {
     background: linear-gradient(to top, #FE2D66, #FE4550, #FE5D3B);
     color: white;
     padding: 14px 25px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
+    border-color: linear-gradient(to top, #FE2D66, #FE4550, #FE5D3B);
+}
+
+.category:hover {
+    background: linear-gradient(to top, #FE5D3B, #FE4550, #FE2D66);
+    text-decoration: none;
 }
