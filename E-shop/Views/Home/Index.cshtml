@@ -42,7 +42,7 @@
                         string numStr = String.Format("{0:0.00}", num);
                     }
                     <td>      @item.Pris,00 kr. <br /> @numStr kr.</td>
-                    <td> <button onclick="køb()"> Køb</button></td>
+                    <td> <button onclick="køb(@item.Id)"> Køb</button></td>
 
                 </tr>
             }
@@ -66,3 +66,8 @@
 }
 
 
+<script type="text/javascript">
+    function kurv(produktid) {
+
+    }
+</script>
