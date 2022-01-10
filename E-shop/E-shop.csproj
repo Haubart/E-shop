@@ -163,6 +163,7 @@
     <Content Include="App_Data\Database_log.ldf">
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
+    <Content Include="Billeder\basket.svg" />
     <Content Include="Billeder\camera %281%29.svg" />
     <Content Include="Billeder\facebook-app-symbol.svg" />
     <Content Include="Billeder\flash-rød.svg" />
