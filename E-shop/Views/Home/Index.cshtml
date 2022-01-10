@@ -1,10 +1,15 @@
 ﻿@model IEnumerable<E_shop.Models.ProduktTabel>
+<head>
+    <link href="~/Content/Index.css" rel="stylesheet" />
+</head>
 
 <br />
 <br />
 <body>
     <div class="col-sm-6">
-        <h2 style="background-color:ActiveBorder; width: 100px; border: 1px solid black; padding: 20px; margin: 20px;">yes</h2>
+        <h2>
+            <a href="https://localhost:44368/Home/AddImage" class="category">Computer</a>
+        </h2>
     </div>
 </body>
 
@@ -37,6 +42,7 @@
                         string numStr = String.Format("{0:0.00}", num);
                     }
                     <td>      @item.Pris,00 kr. <br /> @numStr kr.</td>
+                    <td> <button onclick="køb(@item.Id)"> Køb</button></td>
 
                 </tr>
             }
@@ -48,7 +54,7 @@
     ViewBag.Title = "Home Page";
 }
 
-<h1> DATABASE VÆRDIER </h1>
+
 
 @if (Model.Count() == 0)
 {
@@ -59,25 +65,9 @@
     </tr>
 }
 
-<!--
-@foreach (E_shop.Models.ProduktTabel item in Model)
-{
-    <table>
-        <tr style="border: solid 0.1px; ">
-            @{
-                var billede = System.Convert.ToBase64String(item.Image);
-                var imgsrc = string.Format("data:image/gif;base64,{0}", billede);
-            }
-            <td> <a> <img src='@imgsrc' style=" width: 100px; height: 100px;" /> </a> </td>
 
-            <td> @item.ProduktNavn</td>
+<script type="text/javascript">
+    function kurv(produktid) {
 
-
-
-            <td>  <input type="submit" onclick="Køb()" value="KØB" class="btn btn-default" /></td>
-
-
-        </tr>
-    </table>
-}
-    -->
+    }
+</script>
