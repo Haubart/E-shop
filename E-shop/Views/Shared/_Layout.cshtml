@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model E_shop.Models.Bruger
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -85,12 +87,12 @@
                     </li>
 
                     <li style="margin-top: auto; margin-bottom: auto; margin-right: 50px;">
-                    <div>
-                        <button class="kurvknap" onclick="kurv()">
-                            <img src="~/Billeder/basket.svg" class="basket" />
-                            <p style="margin-left:13px;"> Kurv</p>
-                        </button>
-                    </div>
+                        <div>
+                            <button class="kurvknap" onclick="kurv()">
+                                <img src="~/Billeder/basket.svg" class="basket" />
+                                <p style="margin-left:13px;"> Kurv</p>
+                            </button>
+                        </div>
                     </li>
 
 
@@ -185,6 +187,7 @@
                                 <div class="modal-body">
 
                                     <div class="modal-body">
+                                        <!--Her skal der indsættes en html form i stedet for-->
                                         <h3 class="title">Login Form</h3>
                                         <p class="description">Login here Using Email & Password</p>
                                         <div class="form-group">
