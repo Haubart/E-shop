@@ -1,0 +1,21 @@
+﻿body {
+}
+
+.spacing{
+    margin-top:40px;
+}
+
+.headline {
+    border: solid 0.1px;
+    height: 70px;
+    background-color: orangered;
+ 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.rubrik {
+    justify-content:center;
+}
+
