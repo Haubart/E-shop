@@ -1,20 +1,40 @@
-﻿body {
+﻿
+.body {
+    height: 100vh;
+    margin: 0;
+    display: grid;
+    place-items: center;
+    background: #222;
+}
+
+
+.category-border-wrap {
+    max-width: 250px;
+    padding: 1rem;
+    position: relative;
+    background: linear-gradient(to top, #FE5D3B, #FE4550, #FE2D66);
+    padding: 3px;
 }
 
 .category {
-    background: linear-gradient(to top, #FE2D66, #FE4550, #FE5D3B);
+    background: white;
     color: white;
     padding: 14px 25px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
-    border-color: linear-gradient(to top, #FE2D66, #FE4550, #FE5D3B);
+    font-size:25px;
+    color: black;
 }
 
-.category:hover {
-    background: linear-gradient(to top, #FE5D3B, #FE4550, #FE2D66);
-    text-decoration: none;
-}
+    .category:hover {
+        background: linear-gradient(to top, #FE5D3B, #FE4550, #FE2D66);
+        text-decoration: none;
+        
+        -webkit-text-fill-color: white;
+    }
+
+
+
 .kurvknap {
     border: none;
     background-color: transparent;
