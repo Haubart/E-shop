@@ -50,6 +50,9 @@ textarea {
 
 /*styling til login pop-up vinduet*/
 
+.modal-box {
+    font-family: 'Poppins', sans-serif;
+}
 
 .show-modal {
     color: #fff;
@@ -236,4 +239,5 @@ textarea {
     margin-right: auto;
     width: 99%;
     margin-top: 10px;
+    margin-left: -5px;
 }

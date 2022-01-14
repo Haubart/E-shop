@@ -65,16 +65,7 @@
                     </li>
 
                     <li style="margin-top: auto; margin-bottom: auto; margin-right: 50px;">
-                        <!--<a class="navbar-brand icon" href="@Url.Action("Opret", "Home")">
-                            <div style="height: 60px; position: relative; top: -20px;">
-                                <img src="~/Billeder/user.svg" style="height: 40px; width: 40px; display: block; margin-left: auto; margin-right: auto; width: 99%;" />
-                                <p class="sort-tekst" style="font-size: 15px;">
-                                    Log ind
-                                </p>
-                            </div>
-                        </a>-->
-
-                        <button type="button" class="show-modal" data-toggle="modal" data-target="#myModal" style="background-color: white;">
+                            <button type="button" class="show-modal" data-toggle="modal" data-target="#myModal" style="background-color: white;">
                             <div>
                                 <img src="~/Billeder/user.svg" class="login" />
                                 <p class="sort-tekst" style="font-size: 15px;">
@@ -85,12 +76,14 @@
                     </li>
 
                     <li style="margin-top: auto; margin-bottom: auto; margin-right: 50px;">
-                    <div>
-                        <button class="kurvknap" onclick="kurv()">
-                            <img src="~/Billeder/basket.svg" class="basket" />
-                            <p style="margin-left:13px;"> Kurv</p>
-                        </button>
-                    </div>
+
+                        <a class="navbar-brand icon" href="@Url.Action("Kurv", "Home")">
+                            <div style=" height: 60px; position: relative; top: -30px;">
+                                <img src="~/Billeder/basket.svg" class="basket" />
+                                <p class="sort-tekst"> Kurv</p>
+                            </div>
+                        </a>
+                    
                     </li>
 
 
@@ -165,11 +158,9 @@
     </div>
 
 
-    <style>
-        .modal-box {
-            font-family: 'Poppins', sans-serif;
-        }
-    </style>
+
+    
+
 
     <div class="container">
         <div class="row">
