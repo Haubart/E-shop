@@ -13,6 +13,7 @@ namespace E_shop.Models
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
+
     
     public partial class Bruger
     {
