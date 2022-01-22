@@ -113,6 +113,7 @@ textarea {
         box-shadow: 0 0 5px rgba(0,0,0,0.5);
     }
 
+
 .close:focus {
     outline: none;
 }
@@ -160,7 +161,7 @@ textarea {
     position: absolute;
     /*top: 50%;*/
     left: 20px;
-    padding-left: 35px;
+    padding-left: 45px;
     padding-top: 11.5px;
 }
 
@@ -171,7 +172,7 @@ textarea {
     position: absolute;
     /*top: 50%;*/
     left: 20px;
-    padding-left: 35px;
+    padding-left: 45px;
     padding-top: 11.5px;
 }
 

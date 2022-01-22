@@ -48,9 +48,9 @@ namespace E_shop.Controllers
         [HttpPost]
         public ActionResult Autherize(E_shop.Models.Bruger nyModel)
         {
-            using (DatabaseEntities dbc = new DatabaseEntities())
+            using (DatabaseEntities db = new DatabaseEntities())
             {
-                var brugerOplysninger = dbc.Bruger.Where(x => x.Mail == nyModel.Mail && x.Adgangskode == nyModel.Adgangskode).FirstOrDefault();
+                var brugerOplysninger = db.Bruger.Where(x => x.Mail == nyModel.Mail && x.Adgangskode == nyModel.Adgangskode).FirstOrDefault();
                 if (brugerOplysninger == null)
                 {
                     nyModel.LoginErrorMessage = "forkert brugernavn eller adgangskode";
@@ -59,14 +59,64 @@ namespace E_shop.Controllers
                 else
                 {
                     Session["userID"] = brugerOplysninger.BrugerID;
+                    Session["ForNavn"] = brugerOplysninger.ForNavn;
+                    Session["EfterNavn"] = brugerOplysninger.EfterNavn;
+                    Session["Adgangskode"] = brugerOplysninger.Adgangskode;
+                    Session["Mail"] = brugerOplysninger.Mail;
+                    Session["Adresse"] = brugerOplysninger.Adresse;
+                    Session["Postnr"] = brugerOplysninger.Postnr;
+                    Session["By"] = brugerOplysninger.By;
+                    Session["Telefon"] = brugerOplysninger.Telefon;
+                    Session["Land"] = brugerOplysninger.Land;
                     return View("efterLogin");
                 }                
             }
         }
 
+        public ActionResult LogOut()
+        {
+            Session.Abandon();
+            return RedirectToAction("Login", "Home");
+        }
+
         public ActionResult efterLogin()
         {
             return View();
+        }
+
+        public ActionResult Profil()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Profil(Bruger model, HttpPostedFileBase profil)
+        {
+
+            var db = new DatabaseEntities();
+            db.Bruger.Add(model);
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
+            {
+                Exception raise = dbEx;
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        string message = string.Format("{0}:{1}",
+                            validationErrors.Entry.Entity.ToString(),
+                            validationError.ErrorMessage);
+                        // raise a new exception nesting
+                        // the current instance as InnerException
+                        raise = new InvalidOperationException(message, raise);
+                    }
+                }
+                throw raise;
+            }
+            return View(model);
         }
 
 

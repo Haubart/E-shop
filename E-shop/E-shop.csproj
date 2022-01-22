@@ -240,6 +240,7 @@
     <Content Include="Views\Home\Test.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\efterLogin.cshtml" />
+    <Content Include="Views\Home\Profil.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Login\" />
