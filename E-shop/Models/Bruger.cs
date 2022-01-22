@@ -23,6 +23,7 @@ namespace E_shop.Models
         [Required(ErrorMessage = "Dette felt er nødvendigt.")]
         public string EfterNavn { get; set; }
         [Required(ErrorMessage = "Dette felt er nødvendigt.")]
+        [DataType(DataType.Password)]
         public string Adgangskode { get; set; }
         [Required(ErrorMessage = "Dette felt er nødvendigt.")]
         public string Mail { get; set; }
@@ -38,5 +39,6 @@ namespace E_shop.Models
         [Required(ErrorMessage = "Dette felt er nødvendigt.")]
         public string Land { get; set; }
 
+        public string LoginErrorMessage { get; set; }
     }
 }

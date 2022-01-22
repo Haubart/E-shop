@@ -1,0 +1,70 @@
+﻿@model E_shop.Models.Bruger
+
+@{
+    Layout = null;
+    }
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="modal-box">
+
+                    <div id="myModal">
+                        <div class="modal-dialog">
+                            <div class="modal-content clearfix">
+
+                                    <span >
+                                        <img style="width: 150px; height: 150px; margin-top: 35px;" src="~/Billeder/flash-rød.svg " />
+                                    </span>
+                            
+
+                                <div class="modal-body">
+                                    <div class="modal-body">
+                                        <h3 class="title">Du er nu logget succesfuldt ind på LightningTech</h3>
+                                        <p class="description">Gå til forsiden ved at trykke på knappen "Fortsæt" og log ud ved at trykke på "Tilbage"</p>
+
+
+
+
+                                           
+                                            <div style="margin-bottom: 15px;">
+                                                <a href="@Url.Action("Index", "Home")" class="btn">Forstæt</a><br />
+                                            </div>
+                                            <div>
+                                                <a href="@Url.Action("Login", "Home")" class="btn">Tilbage</a>
+                                            </div>
+                                            
+                                    </div>
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>
+

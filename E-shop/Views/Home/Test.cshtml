@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -7,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="~/Content/Site.css" rel="stylesheet" />
     <style>
         .modal-box {
             font-family: 'Poppins', sans-serif;
@@ -27,35 +31,35 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content clearfix">
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                <div class="modal-body">
+
                                     <div class="modal-body">
-                                        
-                                        <div class="modal-body">
-                                            <h3 class="title">Login Form</h3>
-                                            <p class="description">Login here Using Email & Password</p>
-                                            <div class="form-group">
-                                                <span class="input-icon"><i class="fa fa-user"></i></span>
-                                                <input type="email" class="form-control" placeholder="Enter email">
-                                            </div>
-                                            <div class="form-group">
-                                                <span class="input-icon"><i class="fas fa-key"></i></span>
-                                                <input type="password" class="form-control" placeholder="Password">
-                                            </div>
-
-
-                                            </div>
-                                            <a href="@Url.Action("Opret", "Home")" class="forgot-pass">Har du ikke en konto? Opret dig her!</a>
-                                            <button class="btn">Login</button>
-
-
+                                        <h3 class="title">Login Form</h3>
+                                        <p class="description">Login here Using Email & Password</p>
+                                        <div class="form-group">
+                                            <span class="input-icon"><i class="fa fa-user"></i></span>
+                                            <input type="email" class="form-control" placeholder="Enter email">
                                         </div>
+                                        <div class="form-group">
+                                            <span class="input-icon"><i class="fas fa-key"></i></span>
+                                            <input type="password" class="form-control" placeholder="Password">
+                                        </div>
+
+
                                     </div>
+                                    <a href="@Url.Action("Opret", "Home")" class="forgot-pass">Har du ikke en konto? Opret dig her!</a>
+                                    <button class="btn">Login</button>
+
+
+                                </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
+
             </div>
         </div>
+    </div>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -139,7 +143,6 @@
         padding-top: 20px !important;
         padding-left: 25px !important;
         padding-right: 25px !important;
-
     }
 
         .modal-body .title {
@@ -236,7 +239,5 @@
         .modal-content .modal-body .btn:focus {
             outline: none;
         }
-
-
-}
+    }
 </style>

@@ -71,7 +71,7 @@ textarea {
 
 
 .modal-dialog {
-    width: 400px;
+    width: 422px;
     margin: 70px auto 0;
 }
 
@@ -126,7 +126,7 @@ textarea {
 
     .modal-body .title {
         color: #FE5D3B;
-        font-size: 33px;
+        font-size: 25px;
         font-weight: 700;
         letter-spacing: 1px;
         margin: 0 0 10px;
@@ -153,17 +153,39 @@ textarea {
         left: 20px;
     }
 
-    .modal-body .form-control {
-        font-size: 17px;
-        height: 45px;
-        width: 100%;
-        padding: 6px 0 6px 50px;
-        margin: 0 auto;
-        border: 2px solid #eee;
-        border-radius: 5px;
-        box-shadow: none;
-        outline: none;
-    }
+.input-icon1 {
+    color: #777;
+    font-size: 18px;
+    /*transform: translateY(-50%);*/
+    position: absolute;
+    /*top: 50%;*/
+    left: 20px;
+    padding-left: 35px;
+    padding-top: 11.5px;
+}
+
+.input-icon2 {
+    color: #777;
+    font-size: 18px;
+    /*transform: translateY(-50%);*/
+    position: absolute;
+    /*top: 50%;*/
+    left: 20px;
+    padding-left: 35px;
+    padding-top: 11.5px;
+}
+
+.modal-body .form-control {
+    font-size: 17px;
+    height: 45px;
+    width: 100%;
+    padding: 6px 0 6px 50px;
+    margin: 0 auto;
+    border: 2px solid #eee;
+    border-radius: 5px;
+    box-shadow: none;
+    outline: none;
+}
 
 .form-control::placeholder {
     color: #FE5D3B;
@@ -176,8 +198,7 @@ textarea {
 .modal-body .forgot-pass {
     color: #FE5D3B;
     font-size: 13px;
-    text-align: right;
-    width: calc(100% - 135px);
+    text-align: center;
     margin: 2px 0;
     display: inline-block;
     vertical-align: top;
@@ -199,7 +220,7 @@ textarea {
     letter-spacing: 1px;
     text-transform: uppercase;
     line-height: 38px;
-    width: 100%;
+    width: 80%;
     height: 40px;
     padding: 0;
     border: none;

@@ -31,17 +31,40 @@ namespace E_shop.Controllers
         }
         public ActionResult Kurv()
         {
-         
-
-            
-    
-
-
             return View();
         }
 
 
         public ActionResult Test()
+        {
+            return View();
+        }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Autherize(E_shop.Models.Bruger nyModel)
+        {
+            using (DatabaseEntities dbc = new DatabaseEntities())
+            {
+                var brugerOplysninger = dbc.Bruger.Where(x => x.Mail == nyModel.Mail && x.Adgangskode == nyModel.Adgangskode).FirstOrDefault();
+                if (brugerOplysninger == null)
+                {
+                    nyModel.LoginErrorMessage = "forkert brugernavn eller adgangskode";
+                    return View("Login", nyModel);
+                }
+                else
+                {
+                    Session["userID"] = brugerOplysninger.BrugerID;
+                    return View("efterLogin");
+                }                
+            }
+        }
+
+        public ActionResult efterLogin()
         {
             return View();
         }
