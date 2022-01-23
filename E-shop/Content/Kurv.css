@@ -2,7 +2,8 @@
 }
 
 .spacing{
-    margin-top:40px;
+    margin-top:100px;
+    margin-bottom:auto;
 }
 
 .headline {
@@ -18,4 +19,12 @@
 .rubrik {
     justify-content:center;
 }
+
+.kurvcontent {
+    position: absolute;
+    margin-bottom: auto;
+}   
+
+
+
 
