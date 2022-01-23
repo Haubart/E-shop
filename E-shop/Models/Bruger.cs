@@ -12,9 +12,6 @@ namespace E_shop.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-
-
-    
     public partial class Bruger
     {
         public int BrugerID { get; set; }
@@ -40,5 +37,6 @@ namespace E_shop.Models
         public string Land { get; set; }
 
         public string LoginErrorMessage { get; set; }
+
     }
 }

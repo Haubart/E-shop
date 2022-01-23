@@ -25,11 +25,11 @@
           <Key>
             <PropertyRef Name="Order_ID" />
           </Key>
-          <Property Name="Order_ID" Type="int" Nullable="false" />
+          <Property Name="Order_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ProduktNavn" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Pris" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Antal" Type="nvarchar(max)" />
-          <Property Name="Image" Type="varbinary(max)" />
+          <Property Name="Antal" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Image" Type="varbinary(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="ProduktTabel">
           <Key>
@@ -71,11 +71,11 @@
           <Key>
             <PropertyRef Name="Order_ID" />
           </Key>
-          <Property Name="Order_ID" Type="Int32" Nullable="false" />
+          <Property Name="Order_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ProduktNavn" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Pris" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Antal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Antal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
         </EntityType>
         <EntityType Name="ProduktTabel">
           <Key>

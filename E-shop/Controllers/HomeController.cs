@@ -53,7 +53,7 @@ namespace E_shop.Controllers
                 var brugerOplysninger = db.Bruger.Where(x => x.Mail == nyModel.Mail && x.Adgangskode == nyModel.Adgangskode).FirstOrDefault();
                 if (brugerOplysninger == null)
                 {
-                    nyModel.LoginErrorMessage = "forkert brugernavn eller adgangskode";
+                    nyModel.LoginErrorMessage = "Forkert brugernavn eller adgangskode";
                     return View("Login", nyModel);
                 }
                 else
@@ -90,33 +90,34 @@ namespace E_shop.Controllers
         }
 
         [HttpPost]
-        public ActionResult Profil(Bruger model, HttpPostedFileBase profil)
+        public ActionResult Profil(Bruger nyModel)
         {
-
-            var db = new DatabaseEntities();
-            db.Bruger.Add(model);
-            try
+            using (DatabaseEntities db = new DatabaseEntities())
             {
-                db.SaveChanges();
-            }
-            catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
-            {
-                Exception raise = dbEx;
-                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                var brugerOplysninger = db.Bruger.Where(x => x.Mail == nyModel.Mail && x.Adgangskode == nyModel.Adgangskode).FirstOrDefault();
+                if (brugerOplysninger == null)
                 {
-                    foreach (var validationError in validationErrors.ValidationErrors)
-                    {
-                        string message = string.Format("{0}:{1}",
-                            validationErrors.Entry.Entity.ToString(),
-                            validationError.ErrorMessage);
-                        // raise a new exception nesting
-                        // the current instance as InnerException
-                        raise = new InvalidOperationException(message, raise);
-                    }
+                    nyModel.LoginErrorMessage = "Kunne ikke opdatere oplysninger grundet forkert brugernavn eller adgangskode";
+                    return View("Profil", nyModel);
                 }
-                throw raise;
+                else
+                {
+                    brugerOplysninger.ForNavn = nyModel.ForNavn;
+                    brugerOplysninger.EfterNavn = nyModel.EfterNavn;
+                    brugerOplysninger.Adresse = nyModel.Adresse;
+                    brugerOplysninger.Postnr = nyModel.Postnr;
+                    brugerOplysninger.By = nyModel.By;
+                    brugerOplysninger.Telefon = nyModel.Telefon;
+                    brugerOplysninger.Land = nyModel.Land;
+                    db.SaveChanges();
+                    return View("OpdateringAfOplysninger");
+                }
             }
-            return View(model);
+        }
+
+        public ActionResult OpdateringAfOplysninger()
+        {
+            return View();
         }
 
 
