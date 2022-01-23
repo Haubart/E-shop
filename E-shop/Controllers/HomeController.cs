@@ -27,11 +27,12 @@ namespace E_shop.Controllers
             produkt.ProduktNavn = kurv.ProduktNavn;
             produkt.Image = kurv.Image;
             produkt.Pris = kurv.Pris;
-            return View();
+            return View(db.Kurv);
         }
         public ActionResult Kurv()
         {
-            return View();
+            var db = new DatabaseEntities();
+            return View(db.Kurv);
         }
 
 
@@ -150,7 +151,6 @@ namespace E_shop.Controllers
         [HttpPost]
         public ActionResult Opret(Bruger model, HttpPostedFileBase profil)
         {
-
             var db = new DatabaseEntities();
             db.Bruger.Add(model);
             try
