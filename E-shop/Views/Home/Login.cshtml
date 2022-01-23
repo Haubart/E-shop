@@ -2,28 +2,8 @@
 
 @{
     Layout = null;
+ }
 
-/*    if (Session["UserID"] != null)
-    {
-        <script>
-            let a = document.createElement('a');
-            a.target = '_blank';
-            a.href = 'https://www.google.com/';
-
-            //then use this code for alert
-            if (window.confirm('Ok to Confirm, Cancel to Stay here')) {
-                a.click();
-            };
-        </script>
-        
-        /*@{
-            if (Session["UserID"] == null)
-            {
-                Response.Redirect("/Home/Login");
-            }
-        }*/
-    }
-}
 
 
 <!DOCTYPE html>
@@ -38,7 +18,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="~/Content/Site.css" rel="stylesheet" />
 </head>
-<body>
+<body class="font">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -55,9 +35,9 @@
                                     <div class="modal-body">
                                         <h3 class="title">Log ind</h3>
                                         <p class="description">Log ind her ved brug af din Email & Kodeord</p>
-                                        
+
                                         @using (Html.BeginForm("Autherize", "Home", FormMethod.Post))
-                                        {
+                                         {
                                             <table style="margin: auto">
 
                                                 <tr>
@@ -88,7 +68,10 @@
                                             <br />
                                             <a href="@Url.Action("Opret", "Home")" class="forgot-pass">Har du ikke en konto? Opret dig her!</a>
                                             <input id="myBtn" type="submit" value="Log ind" class="btn" /><br />
-                                        }
+                                            <div style="margin-top: 15px;">
+                                                <a href="@Url.Action("Index", "Home")" class="btn">Forside</a><br />
+                                            </div>
+                                         }
                                     </div>
                                     
                                 </div>
