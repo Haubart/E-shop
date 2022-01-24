@@ -19,6 +19,5 @@ namespace E_shop.Models
         public string ProduktBeskrivelse { get; set; }
         public string ProduktNavn { get; set; }
         public string Pris { get; set; }
-        public string Kategory { get; set; }
     }
 }
