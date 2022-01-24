@@ -1,56 +1,52 @@
 ﻿@model IEnumerable<E_shop.Models.Kurv>
 
+<head>
+    <link href="~/Content/Kurv.css" rel="stylesheet" />
+</head>
 
+<body>
+</body>
+<div>
+    <div class="headline spacing " style="width: 100%;">
+        <h1 class=" rubrik">
+            Kurv
+        </h1>
+    </div>
+    <div>
 
-<link href="~/Content/Kurv.css" rel="stylesheet" />
-<div class="row spacing font">
-    <div class="col-sm-12">
-        <div class="">
-            <div class="headline">
-                <h1 class="rubrik"> indkøbskurv</h1>
-                <div >   
-                    <table class="table table-striped col-sm-12 kurvcontent">
-
-                        @if (Model.Count() == 0)
-                        {
-                            <tr>
-                                <td colspan="3" style="color:red">
-                                    No Match Any Document
-                                </td>
-                            </tr>
-                        }
-                        else
-                        {
-                            foreach (var item in Model)
-                            {
-                                <tr >
-                                    @{
-                                        var billede = System.Convert.ToBase64String(item.Image);
-                                        var imgsrc = string.Format("data:image/gif;base64,{0}", billede);
-                                    }
-                                    <td class="col-sm-1"> <img src='@imgsrc' style=" width: 100px; height: 100px;" /></td>
-                                    <td class="col-sm-1">@item.ProduktNavn</td>
-                                    <td class="col-sm-4">@item.Antal</td>
-                                    @{
-                                        double num = (int.Parse(item.Pris) / 1.5);
-                                        string numStr = String.Format("{0:0.00}", num);
-                                    }
-                                    <td class="col-sm-">      @item.Pris,00 kr. <br /> @numStr kr.</td>
-                                </tr>
+        <table class="table table-striped   " style="width: 100%;">
+            <tbody>
+                @if (Model.Count() == 0)
+                {
+                    <tr>
+                        <td colspan="3" style="color:red">
+                            No Match Any Document
+                        </td>
+                    </tr>
+                }
+                else
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            @{
+                                var billede = System.Convert.ToBase64String(item.Image);
+                                var imgsrc = string.Format("data:image/gif;base64,{0}", billede);
                             }
-                        }
-                        @if (Model.Count() == 0)
-                        {
-                            <tr>
-                                <td>
-                                    Intet matchede dit søge resultat
-                                </td>
-                            </tr>
-                        }
+                            <td> <img src='@imgsrc' style=" width: 100px; height: 100px;" /></td>
+                            <td>@item.ProduktNavn</td>
+                            <td>@item.Antal</td>
+                            @{
+                                double num = (int.Parse(item.Pris) / 1.5);
+                                string numStr = String.Format("{0:0.00}", num);
+                            }
+                            <td>      @item.Pris,00 kr. <br /> @numStr kr.</td>
+                        </tr>
 
-                    </table>
-                </div>
-            </div>
-        </div>
+                    }
+                }
+            </tbody>
+        </table>
     </div>
 </div>
+

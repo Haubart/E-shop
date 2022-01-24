@@ -9,30 +9,32 @@ namespace E_shop.Controllers
 {
     public class HomeController : Controller
     {
+        public ActionResult index1()
+        {
+            return View();
+        }
+
         public ActionResult Index(string searching, string button)
         {
             DatabaseEntities dbe = new DatabaseEntities();
 
             string ok = button;
 
-            return View(dbe.ProduktTabel.Where(x => x.ProduktNavn.Contains(searching) || searching == null));
+            return View(dbe.Items.Where(x => x.ItemName.Contains(searching) || searching == null));
         }
 
         [HttpPost]
-        public ActionResult Index(Kurv kurv, ProduktTabel produkt )
+        public ActionResult Index( )
         {
 
             
-            var db = new DatabaseEntities();
-            produkt.ProduktNavn = kurv.ProduktNavn;
-            produkt.Image = kurv.Image;
-            produkt.Pris = kurv.Pris;
-            return View(db.Kurv);
+  
+            return View();
         }
         public ActionResult Kurv()
         {
             var db = new DatabaseEntities();
-            return View(db.Kurv);
+            return View();
         }
 
 
@@ -205,46 +207,15 @@ namespace E_shop.Controllers
 
         public ActionResult AddImage()
         {
-            ProduktTabel b1 = new ProduktTabel();
-            return View(b1);
+      
+            return View();
         }
 
         [HttpPost]
-        public ActionResult AddImage(ProduktTabel model, HttpPostedFileBase image1, string searching )
+        public ActionResult AddImage(Items model, HttpPostedFileBase image1, string searching )
         {
-            DatabaseEntities db1 = new DatabaseEntities();
 
-            var db = new DatabaseEntities();
-
-            if (image1 != null) // hvis den ikke er lig med null
-            {
-                model.Image = new byte[image1.ContentLength];
-                image1.InputStream.Read(model.Image, 0, image1.ContentLength);
-            }
-            db.ProduktTabel.Add(model);
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
-            {
-                Exception raise = dbEx;
-                foreach (var validationErrors in dbEx.EntityValidationErrors)
-                {
-                    foreach (var validationError in validationErrors.ValidationErrors)
-                    {
-                        string message = string.Format("{0}:{1}",
-                            validationErrors.Entry.Entity.ToString(),
-                            validationError.ErrorMessage);
-                        // raise a new exception nesting
-                        // the current instance as InnerException
-                        raise = new InvalidOperationException(message, raise);
-                    }
-                }
-                throw raise;
-            }
-            return View(model);
-            
+            return View();
 
         }
     }
