@@ -256,7 +256,7 @@
     <Content Include="Views\Home\efterLogin.cshtml" />
     <Content Include="Views\Home\Profil.cshtml" />
     <Content Include="Views\Home\OpdateringAfOplysninger.cshtml" />
-    <Content Include="Views\Item\index1.cshtml" />
+    <Content Include="Views\Item\Addimage.cshtml" />
     <Content Include="Views\Shopping\index.cshtml" />
   </ItemGroup>
   <ItemGroup>

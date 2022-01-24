@@ -18,7 +18,7 @@ namespace E_shop.Controllers
             objDatabaseEntities = new DatabaseEntities();
         }
         
-        public ActionResult index1()
+        public ActionResult Addimage()
         {
             ItemViewModel objItemViewModel = new ItemViewModel();
             objItemViewModel.CategorySelectListItems = (from objCat in objDatabaseEntities.Categories
@@ -33,7 +33,7 @@ namespace E_shop.Controllers
 
 
         [HttpPost]
-        public JsonResult index1(ItemViewModel objItemViewModel)
+        public JsonResult Addimage(ItemViewModel objItemViewModel)
         {
             string NewImage = Guid.NewGuid() + Path.GetExtension(objItemViewModel.ImagePath.FileName);
             objItemViewModel.ImagePath.SaveAs(Server.MapPath("~/Images/" + NewImage));
