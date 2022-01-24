@@ -12,12 +12,14 @@ namespace E_shop.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class ProduktTabel
+    public partial class Items
     {
-        public int Id { get; set; }
-        public byte[] Image { get; set; }
-        public string ProduktBeskrivelse { get; set; }
-        public string ProduktNavn { get; set; }
-        public string Pris { get; set; }
+        public System.Guid ItemID { get; set; }
+        public int CategoryID { get; set; }
+        public string ItemCode { get; set; }
+        public string ItemName { get; set; }
+        public string Description { get; set; }
+        public string ImagePath { get; set; }
+        public decimal ItemPrice { get; set; }
     }
 }

@@ -20,7 +20,7 @@ namespace E_shop.Controllers
         {
             IEnumerable<ShoppingViewModel> listshoppingViewModels = (from objItem in objDatabaseEntities.Items
                                                                      join
-                                                                        objCate in objDatabaseEntities.Categories
+                                                                         objCate in objDatabaseEntities.Categories
                                                                         on objItem.CategoryID equals objCate.CategoryId
                                                                      select new ShoppingViewModel()
                                                                      {
@@ -28,12 +28,14 @@ namespace E_shop.Controllers
                                                                          ItemName = objItem.ItemName,
                                                                          Description = objItem.Description,
                                                                          ItemId = objItem.ItemID,
-                                                                         CateGory = objCate.CategoryName
+                                                                         ItemCode = objItem.ItemCode,
+                                                                         CateGory = objCate.CategoryName,
+                                                                      ItemPrice = objItem.ItemPrice
                                                                      }
 
                                                                      ).ToList();
 
-            return View();
+            return View(listshoppingViewModels);
         }
     }
 }

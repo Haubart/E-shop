@@ -6,7 +6,6 @@
 @{
     ViewBag.Title = "index2";
 }
-
 <script type="text/javascript">
     function AddToCart(item) {
         var itemId = $(item).attr("itemid");
@@ -31,6 +30,7 @@
         });
     }
 </script>
+
 <div class="container">
     <h2 class="text-center">Product List</h2>
     @foreach (var item in Model)
@@ -41,7 +41,7 @@
             </div>
             <div>
                 <div class="col-md-8">
-                    <img src="(@item.ImagePath)" width="150px" height="150px" />
+                    <img src="@Url.Content(@item.ImagePath)" width="150px" height="150px" />
                 </div>
                 <div class="col-md-4" style="text-align: left">
                     <b>@item.Description</b>
@@ -49,8 +49,9 @@
             </div>
 
             <div class="col-md-8" style="font-size: 18px; border-top: 2px solid maroon; padding: 2px">
-                <b>@item.Itemprice kr.</b>
+                <b>@item.ItemPrice.ToString(format: "#,##0.00") kr.</b>
             </div>
+
             <div class="col-md-4" style="text-align: right; margin-bottom: 10px; border-top: 2px solid maroon; padding: 2px">
                 <input type="button" name="AddToCart" value="Add to Cart" class="btn btn-primary" itemid="@item.ItemId" id="btnAddToCart" onclick="AddToCart(this)" />
             </div>
