@@ -12,12 +12,10 @@ namespace E_shop.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Kurv
+    public partial class Categories
     {
-        public int Order_ID { get; set; }
-        public string ProduktNavn { get; set; }
-        public string Pris { get; set; }
-        public string Antal { get; set; }
-        public byte[] Image { get; set; }
+        public int CategoryId { get; set; }
+        public string CategiryCode { get; set; }
+        public string CategoryName { get; set; }
     }
 }
