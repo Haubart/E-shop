@@ -21,30 +21,30 @@
           <Property Name="Telefon" Type="nvarchar" MaxLength="50" />
           <Property Name="Land" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="Kurv">
+        <EntityType Name="Categories">
           <Key>
-            <PropertyRef Name="Order_ID" />
+            <PropertyRef Name="CategoryId" />
           </Key>
-          <Property Name="Order_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ProduktNavn" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Pris" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Antal" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Image" Type="varbinary(max)" Nullable="false" />
+          <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategiryCode" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="150" Nullable="false" />
         </EntityType>
-        <EntityType Name="ProduktTabel">
+        <EntityType Name="Items">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="ItemID" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Image" Type="varbinary(max)" />
-          <Property Name="ProduktBeskrivelse" Type="nvarchar(max)" />
-          <Property Name="ProduktNavn" Type="nvarchar(max)" />
-          <Property Name="Pris" Type="nvarchar" MaxLength="50" />
+          <Property Name="ItemID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CategoryID" Type="int" Nullable="false" />
+          <Property Name="ItemCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ItemName" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="250" />
+          <Property Name="ImagePath" Type="nvarchar" MaxLength="550" Nullable="false" />
+          <Property Name="ItemPrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
         </EntityType>
         <EntityContainer Name="DatabaseModelStoreContainer">
           <EntitySet Name="Bruger" EntityType="Self.Bruger" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Kurv" EntityType="Self.Kurv" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ProduktTabel" EntityType="Self.ProduktTabel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -67,30 +67,30 @@
           <Property Name="Telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Land" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="Kurv">
+        <EntityType Name="Categories">
           <Key>
-            <PropertyRef Name="Order_ID" />
+            <PropertyRef Name="CategoryId" />
           </Key>
-          <Property Name="Order_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ProduktNavn" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Pris" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Antal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategiryCode" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CategoryName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
-        <EntityType Name="ProduktTabel">
+        <EntityType Name="Items">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="ItemID" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="ProduktBeskrivelse" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ProduktNavn" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Pris" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ItemID" Type="Guid" Nullable="false" />
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
+          <Property Name="ItemCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ItemName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ImagePath" Type="String" MaxLength="550" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ItemPrice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
         </EntityType>
         <EntityContainer Name="DatabaseEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Bruger" EntityType="Self.Bruger" />
-          <EntitySet Name="Kurv" EntityType="Self.Kurv" />
-          <EntitySet Name="ProduktTabel" EntityType="Self.ProduktTabel" />
+          <EntitySet Name="Categories" EntityType="Self.Categories" />
+          <EntitySet Name="Items" EntityType="Self.Items" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -115,25 +115,25 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Kurv">
-            <EntityTypeMapping TypeName="DatabaseModel.Kurv">
-              <MappingFragment StoreEntitySet="Kurv">
-                <ScalarProperty Name="Order_ID" ColumnName="Order_ID" />
-                <ScalarProperty Name="ProduktNavn" ColumnName="ProduktNavn" />
-                <ScalarProperty Name="Pris" ColumnName="Pris" />
-                <ScalarProperty Name="Antal" ColumnName="Antal" />
-                <ScalarProperty Name="Image" ColumnName="Image" />
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="DatabaseModel.Categories">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="CategiryCode" ColumnName="CategiryCode" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ProduktTabel">
-            <EntityTypeMapping TypeName="DatabaseModel.ProduktTabel">
-              <MappingFragment StoreEntitySet="ProduktTabel">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Image" ColumnName="Image" />
-                <ScalarProperty Name="ProduktBeskrivelse" ColumnName="ProduktBeskrivelse" />
-                <ScalarProperty Name="ProduktNavn" ColumnName="ProduktNavn" />
-                <ScalarProperty Name="Pris" ColumnName="Pris" />
+          <EntitySetMapping Name="Items">
+            <EntityTypeMapping TypeName="DatabaseModel.Items">
+              <MappingFragment StoreEntitySet="Items">
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="ItemPrice" ColumnName="ItemPrice" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
