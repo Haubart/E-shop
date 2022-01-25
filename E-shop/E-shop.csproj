@@ -170,6 +170,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\CategoryViewModel.cs" />
     <Compile Include="ViewModel\ItemViewModel.cs" />
+    <Compile Include="ViewModel\ShoppingCartModel.cs" />
     <Compile Include="ViewModel\ShoppingViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -258,6 +259,8 @@
     <Content Include="Views\Home\OpdateringAfOplysninger.cshtml" />
     <Content Include="Views\Item\Addimage.cshtml" />
     <Content Include="Views\Shopping\index.cshtml" />
+    <Content Include="Views\Shared\_shoppingCart.cshtml" />
+    <Content Include="Views\Shopping\ShoppingCart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />

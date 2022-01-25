@@ -7,21 +7,28 @@
     ViewBag.Title = "index2";
 }
 <script type="text/javascript">
+
+
+
+
     function AddToCart(item) {
+        var previous = null;
+        var current = null;
         var itemId = $(item).attr("itemid");
         var formData = new FormData();
         formData.append("ItemId", itemId);
-
+   
         $.ajax({
             async: true,
             type: 'POST',
             contentType: false,
             processData: false,
             data: formData,
-            url: '/Shopping/Index',
+            url: '/Shopping/index',
             success: function (data) {
                 if (data.Success) {
                     $("#cartItem").text("Cart(" + data.Counter + ")");
+                    refreshPage()
                 }
             },
             error: function () {
@@ -29,6 +36,23 @@
             }
         });
     }
+
+        
+
+    function sleep(milliseconds) {
+        return new Promise((resolve) => {
+            setTimeout(resolve, milliseconds);
+        });
+    }
+
+     async function gen() {
+        await sleep(100);
+        window.location.reload(true);
+      
+    }
+  
+
+
 </script>
 
 <div class="container">
@@ -53,7 +77,7 @@
             </div>
 
             <div class="col-md-4" style="text-align: right; margin-bottom: 10px; border-top: 2px solid maroon; padding: 2px">
-                <input type="button" name="AddToCart" value="Add to Cart" class="btn btn-primary" itemid="@item.ItemId" id="btnAddToCart" onclick="AddToCart(this)" />
+                <input type="button" name="AddToCart" value="Add to Cart" class="btn btn-primary" itemid="@item.ItemId" id="btnAddToCart" onclick="AddToCart(this); gen();" />
             </div>
 
         </div>

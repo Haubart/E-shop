@@ -86,18 +86,17 @@
                                         </p>
                                     </a>
                                 }
+                           
                             </div>
                         </div>
-                    </li>
 
-                    <li style="margin-top: auto; margin-bottom: auto; margin-right: 50px;">
+                    </li>   
+                    <li>
                         <div>
-                            <button class="kurvknap" onclick="kurv()">
-                                <img src="~/Billeder/basket.svg" class="basket" />
-                                <p style="margin-left:13px;"> Kurv</p>
-                            </button>
+                            @Html.Partial("_shoppingCart")
                         </div>
                     </li>
+                 
                 </ul>
             </div>
         </div>
