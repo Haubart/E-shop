@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -7,13 +11,8 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
 
     <link href="~/Content/Site.css" rel="stylesheet" />
     <link href="~/Content/Login-pop-up-vindue.css" rel="stylesheet" />
@@ -22,9 +21,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" />
     <link rel="stylesheet" href="~/Content/style.css" />
-
 </head>
 <body>
+
     <nav class="navbar navbar-inverse navbar-fixed-top navbar-expand-sm" style="background-color: white; width: 1000px; margin: auto; height: 80px; border-right: solid; border-left: solid; border-bottom: solid;">
         <div class="container">
             <div class="navbar-header">
@@ -38,89 +37,29 @@
                     <h1 class="sort-tekst" style="margin: 0px; font-size: 25px; font-weight: bold;">LightningTech</h1>
                 </a>
 
-                @*@Html.ActionLink("GiantTech", "Index", "Home", new { area = "" }, new {
-
-
-                    class = "navbar-brand sort-tekst" })*@ <!--for at komme ud af kommenterings'mode' så tryk ctrl k+u og for at kommentere det igen tryk ctrl k+c-->
-            </div>
-
-            <div class="navbar-collapse collapse navbar-expand-sm">
-                <ul class="nav navbar-nav navbar-right">
-                    <img src="~/Billeder/magnifying-glass.svg" style="height: 25px; width: 25px; margin-right: 5px; margin-top: auto; margin-bottom: auto;" />
-                    <li style="margin-top: auto; margin-bottom: auto; margin-right: 50px;" placeholder="Søg...">
-                        @using (Html.BeginForm("Index", "Home", FormMethod.Get))
-                        {
-                            @Html.TextBox("searching")
-                            <input type="submit" value="Search" />
-                        }
-                    </li>
-
-                    <li style="margin-top: auto; margin-bottom: auto; margin-right: 50px;">
-                        <a class="navbar-brand icon" href="@Url.Action("Support", "Home")">
-                            <div style=" height: 60px; position: relative; top: -20px;">
-                                <img src="~/Billeder/headset.svg" class="supprt" />
-                                <p class="sort-tekst" style="font-size: 15px;">
-                                    Support
-                                </p>
-                            </div>
-                        </a>
-                    </li>
-
-                    <li style="margin-top: auto; margin-bottom: auto; margin-right: 50px;">
-                        <div type="button" class="show-modal" data-toggle="modal" data-target="#myModal" style="background-color: white;">
-                            <div>
-                                @if (Session["UserID"] != null)
-                                {
-                                    <a href="@Url.Action("Profil", "Home")">
-                                        <img src="~/Billeder/user.svg" class="login" />
-                                        <p class="sort-tekst" style="font-size: 15px;">
-                                            @Session["ForNavn"].ToString()
-                                        </p>
-                                    </a>
-                                }
-
-                                else
-                                {
-                                    <a href="@Url.Action("Login", "Home")">
-                                        <img src="~/Billeder/user.svg" class="login" />
-                                        <p class="sort-tekst" style="font-size: 15px;">
-                                            Log ind
-                                        </p>
-                                    </a>
-                                }
-                            </div>
-                        </div>
-                    </li>
-
-                    <li style="margin-top: auto; margin-bottom: auto; margin-right: 50px;">
-                        <div>
-                            <button class="kurvknap" onclick="kurv()">
-                                <img src="~/Billeder/basket.svg" class="basket" />
-                                <p style="margin-left:13px;"> Kurv</p>
-                            </button>
-                        </div>
-                    </li>
-
-                </ul>
             </div>
         </div>
     </nav>
+    <br />
+    <br />
+    <br />
+    <br />
+
+
+
+
     <div class="container body-content">
-        <br />
-        <br />
-        <br />
-        <br />
-        @RenderBody()
-        <hr />
-        <footer>
-        </footer>
+        <h1>Velkommen til checkout</h1>
+        <h2>Nu er du færdig, tak for dit køb ved LightningTech</h2>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
- 
+
+
+
+
+
+
+
 
     <div class="footer-dark footerb">
         <footer>
@@ -169,20 +108,9 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
-
-
-
-
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-
-
-
-
-
 </body>
 </html>
 

@@ -1,77 +1,174 @@
 ﻿@{
-
-
     ViewBag.Title = "Support page";
-
 }
 <!DOCTYPE html>
 <html>
 
 <head>
-
+    <link href="~/Content/Login-pop-up-vindue.css" rel="stylesheet" />
 </head>
 <body class="font">
+    <h1>Kundeservice</h1>
+    <hr />
+    <img src="~/Billeder/Proshop support billeder.png" />
     <br />
     <br />
-    <p>vores support side</p>
-    <p>Ofte stillede spørgsmål</p>
-    <div>
-        <div class="dropdown">
-            <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-            <div id="myDropdown" class="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-            </div>
-        </div>
-        <br />
-        <br />
+    <br />
+    <div style="width:852px; height: 120px;">
+        <div style="width: 700px; ">
+            <p>
+                <b>FIND SVAR PÅ DIT SPØRGSMÅL HER</b><br />
 
-        <div class="dropdown">
-            <button onclick="myFunction1()" class="dropbtn">Dropdown</button>
-            <div id="myDropdown1" class="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-            </div>
-        </div>
-        <br />
-        <br />
-
-        <div class="dropdown">
-            <button onclick="myFunction2()" class="dropbtn">Dropdown</button>
-            <div id="myDropdown2" class="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-            </div>
-        </div>
-        <br />
-        <br />
-
-        <div class="dropdown">
-            <button onclick="myFunction3()" class="dropbtn">Dropdown</button>
-            <div id="myDropdown3" class="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-            </div>
-        </div>
-        <br />
-        <br />
-
-        <div class="dropdown">
-            <button onclick="myFunction4()" class="dropbtn">Dropdown</button>
-            <div id="myDropdown4" class="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-            </div>
+                Mangler du svar på dit spørgsmål? Spørg vores chatbot, LightningBot eller find svar på de oftest stillede spørgsmål i boksene længere nede på siden. Kan du ikke finde svaret her, er du også velkommen til at kontakte os på mail eller telefon. Vi sidder klar til at hjælpe dig!
+            </p>
         </div>
     </div>
-    
 
 
+    <h3>Ofte stillede spørgsmål</h3>
+    <div>
+
+        <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn">Hvordan sletter jeg min bestilling?</button>
+            <div id="myDropdown" class="dropdown-content">
+                <br />
+                <p>• Som privatkunde kan du slette din bestilling via kundecenter på hjemmesiden, hvis bestillingen endnu ikke er blevet bekræftet afsendt.</p>
+                <br />
+                <p>• Når din bestilling er afsendt, vil du modtage en ordrebekræftelse via e-mail. Du kan logge ind på din kundeprofil med din e-mail adresse, og din adgangskode.</p>
+                <br />
+                <p>• Såfremt du har glemt dit kodeord, så kan du benytte vores glemt kodeords funktion under "Log ind". Eller du kan annullere bestillingen ved, at kontakte kundeservice.</p>
+                <br />
+            </div>
+        </div>
+        <br />
+
+
+        <div class="dropdown">
+            <button onclick="myFunction1()" class="dropbtn">Min pakke er afsendt, men ikke ankommet?</button>
+            <div id="myDropdown1" class="dropdown-content">
+                <br />
+                <p>• Du kan følge din pakke via Track&Trace linket i ordrebekræftelsen.</p>
+                <br />
+                <p>• Der kan gå op til 24 timer førend skanninger/opdateringer er synlige på transportørens hjemmeside.</p>
+                <br />
+                <p>• I ekstraordinære travle perioder som f.eks. Black Friday, kan der forekomme forsinkelser.</p>
+                <br />
+                <p>• Hvis varen ikke er ankommet til forventet tid, kontakt venligst transportøren for nærmere information.</p>
+                <br />
+            </div>
+        </div>
+        <br />
+
+
+        <div class="dropdown">
+            <button onclick="myFunction2()" class="dropbtn">Jeg bliver mødt af krav om NEM ID ved betaling af min ordre?</button>
+            <div id="myDropdown2" class="dropdown-content">
+                <br />
+                <p>
+                    • Pr. 1. januar 2018 er det et krav fra Nets, at der er mobilnr. tilknyttet dankortet.
+                    I processen i at tilknytte mobiltelefonnummeret til dankortet, benyttes NEM ID for at verificere at du er ejeren af kortet. Dette for at sikre dig som forbruger mod misbrug.
+                </p>
+                <br />
+                <p>Yderligere information kan findes <a target="_blank" href="https://www.nets.eu/dk-da/digital-sikkerhed/Pages/Verified-by-Visa-og-MasterCard-Secure-Code.aspx">her</a> </p>
+                <br />
+            </div>
+        </div>
+        <br />
+
+
+        <div class="dropdown">
+            <button onclick="myFunction3()" class="dropbtn">Jeg har bestilt med Mastercard og derefter annulleret ordren. Hvornår frigives beløbet?</button>
+            <div id="myDropdown3" class="dropdown-content">
+                <br />
+                <p>• Der kan gå op til 30 dage førend reservationen af beløbet frigives fra vores betalingsudbyder.Typisk vil frigivelsen ske langt hurtigere.</p>
+                <br />
+            </div>
+        </div>
+        <br />
+
+
+        <div class="dropdown">
+            <button onclick="myFunction4()" class="dropbtn">Hvor ser jeg status på min ordre?</button>
+            <div id="myDropdown4" class="dropdown-content">
+                <br />
+                <p>• Du kan logge ind i dit kundecenter i højre hjørne: ”Log ind” (Hvis du har glemt dit kodeord, kan du klikke <a href="#">her</a>).</p>
+                <br />
+            </div>
+        </div>
+        <br />
+
+
+        <div class="dropdown">
+            <button onclick="myFunction5()" class="dropbtn">Jeg skal returnere min vare, hvad gør jeg?</button>
+            <div id="myDropdown5" class="dropdown-content">
+                <br />
+                <p>• Du skal udfylde returformularen som du finder ved at klikke <a href="#">her</a>.</p>
+                <br />
+            </div>
+        </div>
+        <br />
+
+
+        <div class="dropdown">
+            <button onclick="myFunction6()" class="dropbtn">Jeg har en vare der er defekt, hvad gør jeg?</button>
+            <div id="myDropdown6" class="dropdown-content">
+                <br />
+                <p>• Inden du gør andet, skal du oprette en reklamationssag. Det kan du gøre ved at klikke <a href="#">her</a>.</p>
+                <br />
+            </div>
+
+            <div style="margin-top:50px;">
+                <h3>Min profil</h3>
+                <p>
+                    Under "Min profil" siden kan du se dine pseronoplysninger samt ændre dem.
+                    <br />
+                    Er du ikke logget ind, skal du dog først gøre dette. "Min profil" knappen vil da føre dig til login siden.
+                    <br />
+                    Har du endnu ikke oprettet dig hos LightningTech kan du gøre dette ved at trykke på knappen "Opret" herunder.
+                </p>
+                <br />
+                <div>
+                    <a href="@Url.Action("Login", "Home")" style="width: 20%;" class="btnRød btn">Min profil</a>
+                </div>
+                <br />
+                <div>
+                    <a href="@Url.Action("Opret", "Home")" style="width: 20%;" class="btnRød btn">Opret</a>
+                </div>
+            </div>
+            <hr />
+
+            <div style="padding-top: 70px; text-align:center; width: 700px;">
+                <p><b>Fandt du ikke det du søgte?</b></p>
+                <p>Du er altid velkommen til at kontakte os ved yderligere spørgsmål:</p>
+            </div>
+        </div>
+
+        <div class="row" style="padding-top: 30px; text-align:center; width: 700px; margin: 0px; font-size: 13px;">
+            <div class="col-sm-4 visible-lg-md-sm hidden-xs">
+                <img style="width: 120px; height: 120px;" src="~/Billeder/proshop telefon support.png" />
+                <p>Ring til os på tlf. 10 10 66 77</p>
+            </div>
+
+            <div class="col-sm-4 visible-lg-md-sm hidden-xs">
+                <img style="width: 120px; height: 120px;" src="~/Billeder/proshop Mail support.png" />
+                <p>
+                    Skriv til LightningTech Privat:
+                    <br />
+                    Support@lightningtech.dk
+                </p>
+            </div>
+
+            <div class="col-sm-4 visible-lg-md-sm hidden-xs">
+                <img style="width: 120px; height: 120px;" src="~/Billeder/proshop Mail support.png" />
+                <p>
+                    Skriv til LightningTech Erhverv:
+                    <br />
+                    B2B@lightningtech.dk
+                </p>
+            </div>
+        </div>
+        <br />
+    </div>
 </body>
 </html>
 
@@ -79,53 +176,40 @@
 <style>
     /* Dropdown Button */
     .dropbtn {
+        border-radius: 5px;
         background: linear-gradient(to top, #FE2D66, #FE4550, #FE5D3B);
         color: white;
-        padding: 16px;
+        padding: 10px;
         font-size: 16px;
         border: none;
         cursor: pointer;
-    }
-
-        /* Dropdown button on hover & focus */
-        .dropbtn:hover, .dropbtn:focus {
-            background-color: #2980B9;
-        }
-
-    /* The container <div> - needed to position the dropdown content */
-    .dropdown {
-        position: relative;
-        display: inline-block;
+        width: 700px;
+        text-align: left;
     }
 
     /* Dropdown Content (Hidden by Default) */
     .dropdown-content {
         display: none;
-        position: relative;
         background-color: #f1f1f1;
-        min-width: 160px;
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         z-index: 1;
+        width: 700px;
+        padding-left: 10px;
     }
 
         /* Links inside the dropdown */
         .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
+            color: #FE2D66;
             text-decoration: none;
-            display: block;
         }
 
             /* Change color of dropdown links on hover */
             .dropdown-content a:hover {
-                background-color: #ddd
             }
 
-    /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-    .show {
-        display: block;
-    }
 </style>
+
+
 
 
 <script>
@@ -217,6 +301,48 @@ toggle between hiding and showing the dropdown content */
 toggle between hiding and showing the dropdown content */
     function myFunction4() {
         document.getElementById("myDropdown4").classList.toggle("show");
+    }
+
+    // Close the dropdown menu if the user clicks outside of it
+    window.onclick = function (event) {
+        if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+
+
+    /* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+    function myFunction5() {
+        document.getElementById("myDropdown5").classList.toggle("show");
+    }
+
+    // Close the dropdown menu if the user clicks outside of it
+    window.onclick = function (event) {
+        if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+
+
+    /* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+    function myFunction6() {
+        document.getElementById("myDropdown6").classList.toggle("show");
     }
 
     // Close the dropdown menu if the user clicks outside of it

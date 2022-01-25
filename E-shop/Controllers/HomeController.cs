@@ -138,10 +138,14 @@ namespace E_shop.Controllers
 
         public ActionResult Support()
         {
-            ViewBag.Message = "Your Shit page.";
-
             return View();
         }
+
+        public ActionResult Checkoutpage()
+        {
+            return View();
+        }
+
 
         public ActionResult Opret()
         {
