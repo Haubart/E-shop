@@ -9,19 +9,18 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/Login-pop-up-vindue.css" rel="stylesheet" />
 </head>
 <body class="font">
     @using (Html.BeginForm())
     {
         <div class="form-horizontal">
-            <h1>Dine personoplsyninger</h1>
+            <h1>Min profil</h1>
+            <hr />
+            <h3>Dine personoplsyninger</h3>
+            <p>Herunder kan du se dine personoplysninger du gav, da du oprettede dig som bruger hos LightningTech.</p>
             <p>For at ændre i dine personoplysniger skal alle felter være angivet, også selvom den nye oplsyning er identisk med den tidligere.</p>
             <p>Du kan lave om i alle oplysninger undtagen din Email og adgangskode.</p>
             <p>Din Email og adgangskode skal stadig skrives ind sammen med alle de andre nye oplsyninger, men som valideringsoplsyninger.</p>
@@ -83,8 +82,9 @@
                     @*@Html.ValidationMessageFor(model => model.Land, "", new { @class = "text-danger" })*@
                 </div>
             </div>
+
             <hr />
-            <h2>Valideringsoplsyninger</h2>
+            <h3>Valideringsoplsyninger</h3>
             <p>For at kunne opdatere dine personoplysninger skal du indskrive din Email og adgangskode som validering for at det er dig.</p>
             <p>Derefter skal du trykke på knappen "Opdater Oplysninger".</p>
             <br />
@@ -108,7 +108,7 @@
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input class="btn btn-default" type="submit" value="Opdater Oplysninger" />
+                    <input class="btnRød" type="submit" value="Opdater Oplysninger" />
                 </div>
             </div>
 
@@ -117,11 +117,9 @@
         </div>
     }
 
-
     @section Scripts {
         @Scripts.Render("~/bundles/jqueryval")
     }
-
 
     <hr />
     <h2>Log ud</h2>
@@ -142,33 +140,3 @@
 
 </body>
 </html>
-
-<style>
-    .btn {
-        color: #fff;
-        background: linear-gradient(to top, #FE2D66, #FE4550, #FE5D3B);
-        font-size: 16px;
-        font-weight: 500;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        line-height: 38px;
-        width: 80%;
-        height: 40px;
-        padding: 0;
-        border: none;
-        border-radius: 5px;
-        border: none;
-        display: inline-block;
-        transition: all 0.6s ease 0s;
-    }
-
-        .btn:hover {
-            color: #fff;
-            letter-spacing: 2px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        }
-
-        .btn:focus {
-            outline: none;
-        }
-</style>
