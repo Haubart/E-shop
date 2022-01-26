@@ -8,7 +8,7 @@
 
 
 
-<h2>ShoppingCart</h2>
+<h2><b>ShoppingCart</b></h2>
 
 @using (Html.BeginForm("AddOrder", "Shopping", FormMethod.Post))
 {
@@ -18,7 +18,7 @@
             TotalAmount += item.Total;
             <tr>
                 <td>
-                    <img src="@Url.Content(item.ImagePath)" height="50px" width="50px" class="img-rounded" />
+                    <img src="@Url.Content(item.ImagePath)" style="height: 50px; width: 50px; " class="img-rounded" />
                 </td>
                 <td>
                     @item.ItemName
