@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Bruger">
           <Key>
             <PropertyRef Name="BrugerID" />
@@ -41,13 +41,33 @@
           <Property Name="ImagePath" Type="nvarchar" MaxLength="550" Nullable="false" />
           <Property Name="ItemPrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
         </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderDate" Type="datetime" Nullable="false" />
+          <Property Name="OrderNumber" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="OrderDetails">
+          <Key>
+            <PropertyRef Name="OrderDetailId" />
+          </Key>
+          <Property Name="OrderDetailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderId" Type="int" Nullable="false" />
+          <Property Name="ItemId" Type="varchar" MaxLength="550" Nullable="false" />
+          <Property Name="Quantity" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="UnitPrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Total" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="DatabaseModelStoreContainer">
           <EntitySet Name="Bruger" EntityType="Self.Bruger" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderDetails" EntityType="Self.OrderDetails" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -91,7 +111,28 @@
           <EntitySet Name="Bruger" EntityType="Self.Bruger" />
           <EntitySet Name="Categories" EntityType="Self.Categories" />
           <EntitySet Name="Items" EntityType="Self.Items" />
+          <EntitySet Name="Order" EntityType="DatabaseModel.Order" />
+          <EntitySet Name="OrderDetails" EntityType="DatabaseModel.OrderDetails" />
         </EntityContainer>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OrderNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="OrderDetails">
+          <Key>
+            <PropertyRef Name="OrderDetailId" />
+          </Key>
+          <Property Name="OrderDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="ItemId" Type="String" Nullable="false" MaxLength="550" FixedLength="false" Unicode="false" />
+          <Property Name="Quantity" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="UnitPrice" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="Total" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -134,6 +175,27 @@
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
                 <ScalarProperty Name="ItemPrice" ColumnName="ItemPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Order">
+            <EntityTypeMapping TypeName="DatabaseModel.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderDetails">
+            <EntityTypeMapping TypeName="DatabaseModel.OrderDetails">
+              <MappingFragment StoreEntitySet="OrderDetails">
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="OrderDetailId" ColumnName="OrderDetailId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

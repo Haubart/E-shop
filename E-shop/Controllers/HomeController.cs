@@ -11,33 +11,9 @@ namespace E_shop.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult index1()
-        {
-            return View();
-        }
+    
 
-        public ActionResult Index(string searching, string button)
-        {
-            DatabaseEntities dbe = new DatabaseEntities();
-
-            string ok = button;
-
-            return View(dbe.Items.Where(x => x.ItemName.Contains(searching) || searching == null));
-        }
-
-        [HttpPost]
-        public ActionResult Index( )
-        {
-
-            
   
-            return View();
-        }
-        public ActionResult Kurv()
-        {
-            var db = new DatabaseEntities();
-            return View();
-        }
 
 
         public ActionResult Test()

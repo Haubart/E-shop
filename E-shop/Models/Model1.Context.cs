@@ -28,5 +28,7 @@ namespace E_shop.Models
         public virtual DbSet<Bruger> Bruger { get; set; }
         public virtual DbSet<Categories> Categories { get; set; }
         public virtual DbSet<Items> Items { get; set; }
+        public virtual DbSet<Order> Order { get; set; }
+        public virtual DbSet<OrderDetails> OrderDetails { get; set; }
     }
 }
