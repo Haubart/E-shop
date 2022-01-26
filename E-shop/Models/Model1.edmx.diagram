@@ -6,8 +6,10 @@
     <edmx:Diagrams>
       <Diagram DiagramId="855beacaa78546d9aa2056735dd1a788" Name="Diagram1">
         <EntityTypeShape EntityType="DatabaseModel.Bruger" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.Categories" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.Items" Width="1.5" PointX="2.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Categories" Width="1.5" PointX="2.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Items" Width="1.5" PointX="4.375" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Order" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.OrderDetails" Width="1.5" PointX="4" PointY="4.25" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

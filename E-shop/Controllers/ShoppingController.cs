@@ -17,9 +17,18 @@ namespace E_shop.Controllers
             objDatabaseEntities = new DatabaseEntities();
             listOfShoppingCartModels = new List<ShoppingCartModel>();
         }
-        public ActionResult index()
+
+        public ActionResult index(string searching, string button, string CateGory)
         {
-            IEnumerable<ShoppingViewModel> listshoppingViewModels = (from objItem in objDatabaseEntities.Items
+            if(searching == null)
+            {
+                searching = "";
+            }
+            else
+            {
+
+            }
+           IEnumerable<ShoppingViewModel> listshoppingViewModels = (from objItem in objDatabaseEntities.Items
                                                                      join
                                                                          objCate in objDatabaseEntities.Categories
                                                                         on objItem.CategoryID equals objCate.CategoryId
@@ -34,9 +43,8 @@ namespace E_shop.Controllers
                                                                       ItemPrice = objItem.ItemPrice
                                                                      }
 
-                                                                     ).ToList();
-
-            return View(listshoppingViewModels);
+                                                                    ).ToList();
+             return View(listshoppingViewModels.Where(x => x.ItemName.Contains(searching) || searching == null  ));
         }
 
         [HttpPost]
@@ -79,6 +87,39 @@ namespace E_shop.Controllers
         {
             List<ShoppingCartModel> listOfShoppingCartModels = Session["CartItem"] as List<ShoppingCartModel>;
             return View(listOfShoppingCartModels);
+        }
+
+
+        [HttpPost]
+        public ActionResult AddOrder()
+        {
+            int OrderId = 0;
+
+            listOfShoppingCartModels = Session["CartItem"] as List<ShoppingCartModel>;
+            Order objOrder = new Order()
+            {
+                OrderDate = DateTime.Now,
+                OrderNumber = string.Format("{0:ddmmyyHHmmsss}", DateTime.Now),
+            };
+            objDatabaseEntities.Order.Add(objOrder);
+            objDatabaseEntities.SaveChanges();
+            OrderId = objOrder.OrderId;
+
+            foreach( var item in listOfShoppingCartModels)
+            {
+                OrderDetails objOrderDetails = new OrderDetails();
+                objOrderDetails.Total = item.Total;
+                objOrderDetails.ItemId = item.ItemId;
+                objOrderDetails.OrderId = OrderId;
+                objOrderDetails.Quantity = item.Quantity;
+                objOrderDetails.UnitPrice = item.Unitprice;
+                objDatabaseEntities.OrderDetails.Add(objOrderDetails);
+                objDatabaseEntities.SaveChanges();
+
+            }
+            Session["CartItem"] = null;
+            Session["CartCounter"] = null;
+            return RedirectToAction("index");
         }
 
 
