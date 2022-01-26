@@ -44,7 +44,7 @@ namespace E_shop.Controllers
                                                                      }
 
                                                                     ).ToList();
-             return View(listshoppingViewModels.Where(x => x.ItemName.Contains(searching) || searching == null  ));
+             return View(listshoppingViewModels.Where(x => x.ItemName.Contains(searching) || searching == null));
         }
 
         [HttpPost]
