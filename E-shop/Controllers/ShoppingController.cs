@@ -130,6 +130,7 @@ namespace E_shop.Controllers
             // hvis det ikke findes i vores kurv
             else
             {
+
                 objShoppingCartModel.ItemId = ItemId;
                 objShoppingCartModel.ImagePath = objItem.ImagePath;
                 objShoppingCartModel.ItemName = objItem.ItemName;
