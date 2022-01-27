@@ -2,68 +2,76 @@
 @{
     ViewBag.Title = "ShoppingCart";
     decimal TotalAmount = 0.00M;
-
+    int x = 0;
 }
 
 
-<head>
-    <link href="~/Content/Login-pop-up-vindue.css" rel="stylesheet" />
-</head>
+
 
 <h1>ShoppingCart</h1>
 <hr />
 
 @using (Html.BeginForm("AddOrder", "Shopping", FormMethod.Post))
 {
-    <table class="table-condensed" style="width: 100%">
-        @foreach (var item in Model)
-        {
-            TotalAmount += item.Total;
-            <tr>
-                <td>
-                    <img src="@Url.Content(item.ImagePath)" style="height: 50px; width: 50px; " class="img-rounded" />
-                </td>
-                <td>
-                    @item.ItemName
+
+    if (Session["CartCounter"] == null)
+    {
+        <tr>
+            <td colspan="3" style="color:red">
+         
+                    DU MANGLER AT TILFØJE NOGET I DIN KURV DIN FUCKING NAR ALTSÅ HVAD REGNER DU MED????
+         
+                    </td>
+        </tr>
+    }
+    else
+    {
+        <table class="table-condensed" style="width: 100%">
+            @foreach (var item in Model)
+            {
+                TotalAmount += item.Total;
+                <tr>
+                    <td>
+                        <img src="@Url.Content(item.ImagePath)" style="height: 50px; width: 50px; " class="img-rounded" />
+                    </td>
+                    <td>
+                        @item.ItemName
+                    </td>
+                    <td style="text-align: right">
+                        @item.Quantity.ToString("#,##0")
+                    </td>
+                    <td style="text-align: right">
+                        @item.Unitprice.ToString("#,##0.00")
+                    </td>
+                    <td style="text-align: right">
+                        @item.Total.ToString("#,##0.00")
+                    </td>
+                </tr>
+            }
+            <tr style="border-top: 2px solid maroon">
+                <td colspan="4" style="text-align: right">
+                    <h3>Total Amount</h3>
                 </td>
                 <td style="text-align: right">
-                    @item.Quantity.ToString("#,##0")
-                </td>
-                <td style="text-align: right">
-                    @item.Unitprice.ToString("#,##0.00")
-                </td>
-                <td style="text-align: right">
-                    @item.Total.ToString("#,##0.00")
+                    <h3>@TotalAmount.ToString("#,##0.00")</h3>
                 </td>
             </tr>
-        }
-        <tr style="border-top: 2px solid maroon">
-            <td colspan="4" style="text-align: right">
-                <h3>Total Amount</h3>
-            </td>
-            <td style="text-align: right">
-                <h3>@TotalAmount.ToString("#,##0.00")</h3>
-            </td>
-        </tr>
 
-        <tr style="text-align: right">
-            <td colspan="5">
-                <input type="submit" value="Gå til kassen" name="Save" class="btnRød btn" id="SaveOrder" />
-            </td>
-        </tr>
+            <tr style="text-align: right">
+                <td colspan="5">
+                    <input type="submit" value="Save" name="Save" class="btn btn-primary" id="SaveOrder" />
+                </td>
+            </tr>
 
-        <tr >
-            <td>
-                <a href="@Url.Action("Index", "Shopping")" class="btn btnRød" style="width: 70px; font-size: 10px; background: dimgrey">Køb mere</a>
-            </td>
-            <!--<td>
-                <input type="reset" value="Ryd kurv" name="reset" class="btnRød btn btn-primary" style="width: 70px; font-size: 10px; background: dimgrey" />
-            </td>-->
-        </tr>
-    </table>
+            <tr style="text-align: center">
+                <td colspan="5">
+                    @Html.ActionLink("Back to Shopping", "Index", "Shopping")
+                </td>
+            </tr>
+        </table>
 
+    }
 }
-
 
 
 
