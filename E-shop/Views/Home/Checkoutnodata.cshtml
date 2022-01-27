@@ -1,0 +1,212 @@
+﻿@model E_shop.Models.Bruger
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/Login-pop-up-vindue.css" rel="stylesheet" />
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" />
+    <link rel="stylesheet" href="~/Content/style.css" />
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top navbar-expand-sm" style="background-color: white; width: 1000px; margin: auto; height: 80px; border-right: solid; border-left: solid; border-bottom: solid;">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand icon" href="@Url.Action("Index", "Shopping")" style=" display: flex; justify-content: center; align-items: center;">
+                    <img src="~/Billeder/flash-rød.svg" style="height:40px; width: 40px; margin-right: 20px;" />
+                    <h1 class="sort-tekst" style="margin: 0px; font-size: 25px; font-weight: bold;">LightningTech</h1>
+                </a>
+
+            </div>
+        </div>
+    </nav>
+    <br />
+    <br />
+    <br />
+    <br />
+
+
+
+
+    <div class="container body-content">
+        <h1>Velkommen til checkout</h1>
+        <h2>Nu er du færdig, tak for dit køb ved LightningTech</h2>
+
+
+        @using (Html.BeginForm())
+        {
+            <div class="form-horizontal">
+                <h1>Min profil</h1>
+                <hr />
+                <h3>Dine personoplsyninger</h3>
+                <p>Herunder kan du se dine personoplysninger du gav, da du oprettede dig som bruger hos LightningTech.</p>
+                <p>For at ændre i dine personoplysniger skal alle felter være angivet, også selvom den nye oplsyning er identisk med den tidligere.</p>
+                <p>Du kan lave om i alle oplysninger undtagen din Email og adgangskode.</p>
+                <p>Din Email og adgangskode skal stadig skrives ind sammen med alle de andre nye oplsyninger, men som valideringsoplsyninger.</p>
+                <br />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <p class="col-md-2 control-label"><b>Fornavn</b></p>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.ForNavn, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <p class="col-md-2 control-label"><b>Efternavn</b></p>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.EfterNavn, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Adresse, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Adresse, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Postnr, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Postnr, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.By, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.By, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <p class="col-md-2 control-label"><b>Telefonnummer</b></p>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Telefon, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Land, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Land, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <hr />
+                <h3>Valideringsoplsyninger</h3>
+                <p>For at kunne opdatere dine personoplysninger skal du indskrive din Email og adgangskode som validering for at det er dig.</p>
+                <p>Derefter skal du trykke på knappen "Opdater Oplysninger".</p>
+                <br />
+                <div class="form-group">
+                    <p class="col-md-2 control-label"><b>Email</b></p>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Mail, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Adgangskode, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Adgangskode, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input class="btnRød" type="submit" value="Opdater Oplysninger" />
+                    </div>
+                </div>
+
+
+                <label class="text-danger">@Html.DisplayFor(model => model.LoginErrorMessage)</label>
+            </div>
+        }
+    </div>
+
+
+    
+
+
+
+
+
+
+    <div class="footer-dark footerb">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-2 item">
+                        <h3>Åbningstider</h3>
+                        <ul>
+                            <li><a>Mandag - Fredag:</a></li>
+                            <li><a>Lørdag:</a></li>
+                            <li><a>Søndag:</a></li>
+                            <li><a>Helligdage:</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-sm-6 col-md-2 item">
+                        <h3></h3>
+                        <ul>
+                            <br />
+                            <li><a>10:00 - 17:00</a></li>
+                            <li><a>11:00 - 16:00</a></li>
+                            <li><a>12:00 - 15:00</a></li>
+                            <li><a>Lukket</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Placering:</h3>
+                        <ul>
+                            <li><a>College360</a></li>
+                            <li><a>Bindslevsplads</a></li>
+                            <li><a>8600 Silkeborg</a></li>
+                            <li><a>Danmark</a></li>
+                            <li><a>CVR: DK123456789</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-5 item text">
+                        <h3>LightningTech</h3>
+                        <p>Vi tager forbehold for tryk- og korrekturfejl samt afgifts- og prisændringer. Vi gør i øvrigt opmærksom på at din bestilling ikke er bindende for LightningTech, før LightningTech har behandlet din ordre og sendt en bindende faktura.</p>
+                    </div>
+                    <div class="col item social"><a href="https://www.facebook.com"><i class="icon ion-social-facebook"></i></a><a href="https://twitter.com/i/flow/login"><i class="icon ion-social-twitter"></i></a><a href="https://www.snapchat.com"><i class="icon ion-social-snapchat"></i></a><a href="instagram.com"><i class="icon ion-social-instagram"></i></a></div>
+                </div>
+                <p class="copyright">LightningTech © 2022</p>
+            </div>
+        </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>
+

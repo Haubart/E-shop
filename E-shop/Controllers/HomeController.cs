@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using E_shop.Models;
 using E_shop.ViewModel;
 
 namespace E_shop.Controllers
@@ -121,9 +120,16 @@ namespace E_shop.Controllers
             return View();
         }
 
-        public ActionResult Checkoutpage()
+        public ActionResult Checkout()
         {
-            return View();
+            if (Session["userID"] != null)
+            {
+                return View("Checkoutdata");
+            }
+            else
+            {
+                return View("Checkoutnodata");
+            }
         }
 
 
@@ -161,30 +167,7 @@ namespace E_shop.Controllers
             return View(model);
         }
 
-        /*Nedenstående er til test*/
-        [HttpPost]
-        public ActionResult Login(Bruger reg)
-        {
-            
-                var db = new DatabaseEntities();
-
-            if (ModelState.IsValid)
-            {
-
-                if (db.Bruger.Where(x => x.Mail == reg.Mail).Any())
-                {
-                    //Do what do u need to do...
-                }
-                else
-                {
-                    db.SaveChanges();
-
-                    return RedirectToAction("Login");
-                }
-            }
-            return View();
-        }
-        /*ovenstående er til test*/
+       
 
 
         public ActionResult AddImage()
