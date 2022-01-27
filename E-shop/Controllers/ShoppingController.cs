@@ -23,6 +23,8 @@ namespace E_shop.Controllers
 
         public ActionResult index(string searching, string filter)
         {
+
+
             if (searching == null)
             {
                 searching = "";
@@ -46,8 +48,14 @@ namespace E_shop.Controllers
                                                                       ItemPrice = objItem.ItemPrice
                                                                      }
 
-                                                                    ).ToList();
-            if ( searching == "")
+                 
+                                                                     ).ToList();
+
+            if (searching == "" && filter == null)
+            {
+                return_Model = listShoppingViewModel;
+            }
+            else if ( searching == "")
             {
                 listShoppingViewModel = (from objItem in objDatabaseEntities.Items
                                          join
@@ -87,7 +95,13 @@ namespace E_shop.Controllers
                                                                    ).ToList();
                 return_Model = listShoppingViewModel.Where(x => x.ItemName.Contains(searching) || searching == null);
             }
+       
          
+               
+          
+            
+
+
             return View(return_Model);
         }
         
