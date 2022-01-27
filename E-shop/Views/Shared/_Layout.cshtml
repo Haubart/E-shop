@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="~/Content/Login-pop-up-vindue.css" />
 
 </head>
-<body>
+<body class="body">
     <nav class="navbar navbar-inverse navbar-fixed-top navbar-expand-sm" style="background-color: white; width: 1000px; margin: auto; height: 80px; border-right: solid; border-left: solid; border-bottom: solid;">
         <div class="container">
             <div class="navbar-header">
@@ -54,6 +54,12 @@
                             <input type="submit" value="Search" />
                         }
                     </li>
+
+
+
+
+
+
 
                     <li style="margin-top: auto; margin-bottom: auto; margin-right: 50px;">
                         <a class="navbar-brand icon" href="@Url.Action("Support", "Home")">
@@ -110,12 +116,7 @@
         <br />
         @RenderBody()
         <hr />
-        <footer>
-            <div id="footer" class="paddingleftright">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div id="divcenter1">
-        </footer>
+        
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -124,7 +125,7 @@
     @RenderSection("scripts", required: false)
  
 
-    <div class="footer-dark footerb">
+    <div class="footer-dark">
         <footer>
             <div class="container">
                 <div class="row">

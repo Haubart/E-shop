@@ -1,4 +1,10 @@
-﻿.footer-dark {
+﻿body {
+    min-height: 1000px;
+    margin: 0;
+    display: grid;
+}
+
+.footer-dark {
     padding: 50px 0;
     color: #f0f9ff;
     background-color: #282d32;
@@ -90,11 +96,5 @@ ul {
     padding-top: 24px;
     opacity: 0.3;
     font-size: 13px;
-    margin-bottom: 0;
-}
-
-.footerb {
-    position: relative;
-    bottom: 0;
-    width: 100%;
+    margin-bottom: -400px;
 }
