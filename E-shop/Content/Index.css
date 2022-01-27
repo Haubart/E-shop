@@ -1,17 +1,4 @@
-﻿
-.body {
-    height: 100vh;
-    margin: 0;
-    display: grid;
-    place-
-        
-        
-        s: center;
-    background: #222;
-}
-
-
-.category-border-wrap {
+﻿.category-border-wrap {
     max-width: 250px;
     max-height: 250px;
     padding: 1rem;
