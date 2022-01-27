@@ -1,20 +1,32 @@
-﻿<ul class="nav navbar-nav navbar-right">
+﻿<link href="~/Content/Site.css"/>
+<link href="~/Content/style.css" />
+
+<ul class="nav navbar-nav navbar-right">
     <li>
         @if (Session["CartCounter"] == null)
         {
 
-            <img src="~/Billeder/basket.svg" class="login" />
-            <a href="@Url.Action("ShoppingCart", "shopping")">
-                @Html.ActionLink("Cart", actionName: "ShoppingCart", routeValues: "Shopping", htmlAttributes: new { id = "CartItem" })
-            </a>
+
+        <a href="@Url.Action("ShoppingCart", "Shopping")">
+            <img src="~/Billeder/basket.svg" class="basket" />
+
+            <p class="sort-tekst">
+                @Html.ActionLink("Cart", "ShoppingCart", "Shopping", htmlAttributes: new { id = "CartItem" })
+            </p>
+        </a>
         }
         else
         {
 
-        <img src="~/Billeder/basket.svg" class="login" />
-        <a href="@Url.Action("ShoppingCart", "shopping")">
-            @Html.ActionLink("Cart" + "(" + Session["CartCounter"] + ")", actionName: "ShoppingCart", routeValues: "Shopping", htmlAttributes: new { id = "CartItem" })
-        </a>
+
+
+    <a href="@Url.Action("ShoppingCart", "Shopping")">
+        <img src="~/Billeder/basket.svg" class="basket" />
+
+        <p class="sort-tekst" >
+            @Html.ActionLink("Cart" + "(" + Session["CartCounter"] + ")", "ShoppingCart", "Shopping", htmlAttributes: new { id = "CartItem" })
+        </p>
+    </a>
         }
 
     </li>

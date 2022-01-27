@@ -12,15 +12,18 @@ namespace E_shop.Controllers
     {
        private DatabaseEntities objDatabaseEntities;
         List<ShoppingCartModel> listOfShoppingCartModels;
+
+        private IEnumerable<ShoppingViewModel> listShoppingViewModel;
+        public IEnumerable<ShoppingViewModel> return_Model;
         public ShoppingController()
         {
             objDatabaseEntities = new DatabaseEntities();
             listOfShoppingCartModels = new List<ShoppingCartModel>();
         }
 
-        public ActionResult index(string searching, string button, string CateGory)
+        public ActionResult index(string searching, string filter)
         {
-            if(searching == null)
+            if (searching == null)
             {
                 searching = "";
             }
@@ -28,7 +31,7 @@ namespace E_shop.Controllers
             {
 
             }
-           IEnumerable<ShoppingViewModel> listshoppingViewModels = (from objItem in objDatabaseEntities.Items
+            listShoppingViewModel = (from objItem in objDatabaseEntities.Items
                                                                      join
                                                                          objCate in objDatabaseEntities.Categories
                                                                         on objItem.CategoryID equals objCate.CategoryId
@@ -44,8 +47,52 @@ namespace E_shop.Controllers
                                                                      }
 
                                                                     ).ToList();
-             return View(listshoppingViewModels.Where(x => x.ItemName.Contains(searching) || searching == null));
+            if ( searching == "")
+            {
+                listShoppingViewModel = (from objItem in objDatabaseEntities.Items
+                                         join
+                                             objCate in objDatabaseEntities.Categories
+                                            on objItem.CategoryID equals objCate.CategoryId
+                                         select new ShoppingViewModel()
+                                         {
+                                             ImagePath = objItem.ImagePath,
+                                             ItemName = objItem.ItemName,
+                                             Description = objItem.Description,
+                                             ItemId = objItem.ItemID,
+                                             ItemCode = objItem.ItemCode,
+                                             CateGory = objCate.CategoryName,
+                                             ItemPrice = objItem.ItemPrice
+                                         }
+
+                                                                   ).ToList();
+                return_Model = listShoppingViewModel.Where(x => x.CateGory.Contains(filter) || searching == filter);
+            }
+            else if (filter == null )
+            {
+                listShoppingViewModel = (from objItem in objDatabaseEntities.Items
+                                         join
+                                             objCate in objDatabaseEntities.Categories
+                                            on objItem.CategoryID equals objCate.CategoryId
+                                         select new ShoppingViewModel()
+                                         {
+                                             ImagePath = objItem.ImagePath,
+                                             ItemName = objItem.ItemName,
+                                             Description = objItem.Description,
+                                             ItemId = objItem.ItemID,
+                                             ItemCode = objItem.ItemCode,
+                                             CateGory = objCate.CategoryName,
+                                             ItemPrice = objItem.ItemPrice
+                                         }
+
+                                                                   ).ToList();
+                return_Model = listShoppingViewModel.Where(x => x.ItemName.Contains(searching) || searching == null);
+            }
+         
+            return View(return_Model);
         }
+        
+
+
 
         [HttpPost]
         public JsonResult index (string ItemId)
