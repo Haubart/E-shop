@@ -269,6 +269,8 @@
     <Content Include="Views\Shopping\index.cshtml" />
     <Content Include="Views\Shared\_shoppingCart.cshtml" />
     <Content Include="Views\Shopping\ShoppingCart.cshtml" />
+    <Content Include="Views\Home\Checkoutdata.cshtml" />
+    <Content Include="Views\Home\Checkoutnodata.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />

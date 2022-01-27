@@ -6,7 +6,9 @@
 }
 
 
-
+<head>
+    <link href="~/Content/Login-pop-up-vindue.css" rel="stylesheet" />
+</head>
 
 <h2><b>ShoppingCart</b></h2>
 
@@ -45,14 +47,17 @@
 
         <tr style="text-align: right">
             <td colspan="5">
-                <input type="submit" value="Save" name="Save" class="btn btn-primary" id="SaveOrder" />
+                <input type="submit" value="Gå til kassen" name="Save" class="btnRød btn" id="SaveOrder" />
             </td>
         </tr>
 
-        <tr style="text-align: center">
-            <td colspan="5">
-                @Html.ActionLink("Back to Shopping", "Index", "Shopping")
+        <tr >
+            <td>
+                <a href="@Url.Action("Index", "Shopping")" class="btn btnRød" style="width: 70px; font-size: 10px; background: dimgrey">Køb mere</a>
             </td>
+            <!--<td>
+                <input type="reset" value="Ryd kurv" name="reset" class="btnRød btn btn-primary" style="width: 70px; font-size: 10px; background: dimgrey" />
+            </td>-->
         </tr>
     </table>
 

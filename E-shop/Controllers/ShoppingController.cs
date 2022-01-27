@@ -119,7 +119,7 @@ namespace E_shop.Controllers
             }
             Session["CartItem"] = null;
             Session["CartCounter"] = null;
-            return RedirectToAction("index");
+            return RedirectToAction("Checkout", "Home");
         }
 
 
