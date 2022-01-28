@@ -39,7 +39,7 @@ namespace E_shop.Controllers
                     Session["Telefon"] = brugerOplysninger.Telefon;
                     Session["Land"] = brugerOplysninger.Land;
                     return View("efterLogin");
-                }                
+                }
             }
         }
 
@@ -147,10 +147,22 @@ namespace E_shop.Controllers
         {
             using (DatabaseEntities db = new DatabaseEntities())
             {
-                var brugerOplysninger = db.Bruger.Where(x => x.Mail == nyModel.Mail && x.Adgangskode == nyModel.Adgangskode).FirstOrDefault();
-                if (brugerOplysninger == null)
+                 var brugerOplysninger = db.Bruger.Where(x => x.Mail == nyModel.Mail && x.Adgangskode == nyModel.Adgangskode && x.ForNavn == nyModel.ForNavn && x.EfterNavn == nyModel.EfterNavn && x.Adresse == nyModel.Adresse && x.Postnr == nyModel.Postnr && x.By == nyModel.By && x.Telefon == nyModel.Telefon && x.Land == nyModel.Land).FirstOrDefault();
+
+                string Fornavn = db.Bruger.Where(x => x.ForNavn == nyModel.ForNavn).ToString();
+                string EfterNavn = db.Bruger.Where(x => x.EfterNavn == nyModel.EfterNavn).ToString();
+                string Adresse = db.Bruger.Where(x => x.Adresse == nyModel.Adresse).ToString();
+                string Postnr = db.Bruger.Where(x => x.Postnr == nyModel.Postnr).ToString();
+                string By = db.Bruger.Where(x => x.By == nyModel.By).ToString();
+                string Telefon = db.Bruger.Where(x => x.Telefon == nyModel.Telefon).ToString();
+                string Land = db.Bruger.Where(x => x.Land == nyModel.Land).ToString();
+                string Mail = db.Bruger.Where(x => x.Mail == nyModel.Mail).ToString();
+                string Adgangskode = db.Bruger.Where(x => x.Adgangskode == nyModel.Adgangskode).ToString();
+
+                
+                if (brugerOplysninger == null || (Fornavn == null && EfterNavn == null && Adresse == null && Postnr == null && By == null && Telefon == null && Land == null && Mail == null && Adgangskode == null))
                 {
-                    nyModel.LoginErrorMessage = "Kunne ikke gennemføre købet grundet forkert Email eller adgangskode";
+                    nyModel.LoginErrorMessage = "Kunne ikke gennemføre købet grundet forkert Email eller adgangskode og, eller grundet manglende eller forkerte informationer";
                     return View("Checkoutdata", nyModel);
                 }
                 else
@@ -162,9 +174,22 @@ namespace E_shop.Controllers
 
 
         [HttpPost]
-        public ActionResult Checkoutnodata()
+        public ActionResult Checkoutnodata(Bruger nyModel)
         {
-            return View("KøbGennemført");
+            using (DatabaseEntities db = new DatabaseEntities())
+            {
+                var ingenOplysninger = db.Bruger.Where(x => x.ForNavn == null || x.EfterNavn == null || x.Adresse == null || x.Postnr == null || x.By == null || x.Telefon == null || x.Land == null || x.Mail == null).FirstOrDefault();
+                if (ingenOplysninger == null)
+                {
+                    return View("KøbGennemført");
+                }
+                else
+                {
+                    nyModel.LoginErrorMessage = "Kunne ikke gennemføre købet grundet manglende informationer";
+                    return View("Checkoutnodata", nyModel);
+                    
+                }
+            }
         }
 
 

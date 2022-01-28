@@ -1,33 +1,23 @@
 ﻿<link href="~/Content/Site.css"/>
 <link href="~/Content/style.css" />
 
-<ul class="nav navbar-nav navbar-right">
-    <li>
+
         @if (Session["CartCounter"] == null)
         {
-
-
         <a href="@Url.Action("ShoppingCart", "Shopping")">
-            <img src="~/Billeder/basket.svg" class="basket" />
-
-            <p class="sort-tekst">
-                @Html.ActionLink("Cart", "ShoppingCart", "Shopping", htmlAttributes: new { id = "CartItem" })
+            <img src="~/Billeder/basket.svg" class="login" />
+            <p class="sort-tekst" id="CartItem" style="font-size: 15px;">
+                Cart
             </p>
         </a>
         }
+        
         else
         {
-
-
-
-    <a href="@Url.Action("ShoppingCart", "Shopping")">
-        <img src="~/Billeder/basket.svg" class="basket" />
-
-        <p class="sort-tekst" >
-            @Html.ActionLink("Cart" + "(" + Session["CartCounter"] + ")", "ShoppingCart", "Shopping", htmlAttributes: new { id = "CartItem" })
-        </p>
-    </a>
+        <a href="@Url.Action("ShoppingCart", "Shopping")">
+            <img src="~/Billeder/basket.svg" class="login" />
+            <p class="sort-tekst" id="CartItem" style="font-size: 15px;">
+                Cart (@Session["CartCounter"].ToString())
+            </p>
+        </a>
         }
-
-    </li>
-</ul>

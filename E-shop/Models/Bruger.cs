@@ -39,7 +39,5 @@ namespace E_shop.Models
 
         public string LoginErrorMessage { get; set; }
 
-        public string KøbGennemført { get; set; }
-
     }
 }
