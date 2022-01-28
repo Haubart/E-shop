@@ -1,0 +1,95 @@
+﻿@Model IEnumerable<E_shop.Models.Items>
+
+
+
+
+
+<head>
+    <link href="~/Content/Index.css" rel="stylesheet" />
+</head>
+<br />
+<br />
+
+<script type="text/javascript">
+    function AddToCart(item) {
+
+        var itemId = $(item).attr("itemid");
+        var formData = new FormData();
+        formData.append("ItemId", itemId);
+
+        $.ajax({
+            async: true,
+            type: 'POST',
+            contentType: false,
+            processData: false,
+            data: formData,
+            url: '/Home/Index',
+            success: function (data) {
+                if (data.Success) {
+                    $("#cartItem").text("Cart(" + data.Counter + ")");
+                    refreshPage()
+                }
+            },
+            error: function () {
+                alert("There is some problem.");
+            }
+        });
+    }
+
+
+
+    function sleep(milliseconds) {
+        return new Promise((resolve) => {
+            setTimeout(resolve, milliseconds);
+        });
+    }
+
+    async function gen() {
+        await sleep(100);
+        window.location.reload(true);
+
+    }
+
+
+
+</script>
+
+
+
+<table class="table table-striped">
+    <tbody>
+        @if (Model.Count() == 0)
+        {
+            <tr>
+                <td colspan="3" style="color:red">
+                    No Match Any Document
+                </td>
+            </tr>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+
+                    <td> <img src='@item.ImagePath' style=" width: 100px; height: 100px;" /></td>
+                    <td>@item.ItemName</td>
+                    <td>@item.Description</td>
+                    @{
+
+                    }
+                    <td>      @item.ItemPrice kr. </td>
+
+                    <td>
+                        <input type="button" name="AddToCart" value="Add to Cart" class="btn btn-primary" itemid="@item.ItemID" id="btnAddToCart" onclick="AddToCart(this); gen();" />
+                    </td>
+
+
+                </tr>
+
+            }
+        }
+    </tbody>
+</table>
+
+
