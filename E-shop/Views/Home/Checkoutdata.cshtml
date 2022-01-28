@@ -55,7 +55,8 @@
 
     <div class="container body-content">
         <h1>Checkout</h1>
-
+        <p>Dataene på siden skal være identiske med oplysninger der står indskrevet på "Min profil" siden.</p>
+        <p>Hvis du vil ændre i dissse oplsyninger kan du ændre dem <a href="@Url.Action("Profil", "Home")" class="forgot-pass" style="color: #FE2D66;">her</a> </p>
 
 
         @using (Html.BeginForm("Checkoutdata", "Home", FormMethod.Post))
@@ -72,7 +73,7 @@
                     <div class="form-group">
                         <p class="col-md-2 control-label"><b>Fornavn</b></p>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.ForNavn, new { htmlAttributes = new { @class = "form-control", Value = @Session["ForNavn"].ToString() } })
+                            @Html.EditorFor(model => model.ForNavn, new { htmlAttributes = new { @class = "form-control", Value = @Session["ForNavn"].ToString(), style = "margin-left: 10px;" } })
                             @Html.ValidationMessageFor(model => model.ForNavn, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -80,7 +81,7 @@
                     <div class="form-group">
                         <p class="col-md-2 control-label"><b>Efternavn</b></p>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.EfterNavn, new { htmlAttributes = new { @class = "form-control", Value = @Session["EfterNavn"].ToString() } })
+                            @Html.EditorFor(model => model.EfterNavn, new { htmlAttributes = new { @class = "form-control", Value = @Session["EfterNavn"].ToString(), style = "margin-left: 10px;" } })
                             @Html.ValidationMessageFor(model => model.EfterNavn, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -89,7 +90,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.Adresse, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.Adresse, new { htmlAttributes = new { @class = "form-control", Value = @Session["Adresse"].ToString() } })
+                            @Html.EditorFor(model => model.Adresse, new { htmlAttributes = new { @class = "form-control", Value = @Session["Adresse"].ToString(), style = "margin-left: 10px;" } })
                             @Html.ValidationMessageFor(model => model.Adresse, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -97,7 +98,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.Postnr, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.Postnr, new { htmlAttributes = new { @class = "form-control", Value = @Session["Postnr"].ToString() } })
+                            @Html.EditorFor(model => model.Postnr, new { htmlAttributes = new { @class = "form-control", Value = @Session["Postnr"].ToString(), style = "margin-left: 10px;" } })
                             @Html.ValidationMessageFor(model => model.Postnr, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -105,7 +106,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.By, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.By, new { htmlAttributes = new { @class = "form-control", Value = @Session["By"].ToString() } })
+                            @Html.EditorFor(model => model.By, new { htmlAttributes = new { @class = "form-control", Value = @Session["By"].ToString(), style = "margin-left: 10px;" } })
                             @Html.ValidationMessageFor(model => model.By, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -113,7 +114,7 @@
                     <div class="form-group">
                         <p class="col-md-2 control-label"><b>Telefonnummer</b></p>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.Telefon, new { htmlAttributes = new { @class = "form-control", Value = @Session["Telefon"].ToString() } })
+                            @Html.EditorFor(model => model.Telefon, new { htmlAttributes = new { @class = "form-control", Value = @Session["Telefon"].ToString(), style = "margin-left: 10px;" } })
                             @Html.ValidationMessageFor(model => model.Telefon, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -121,7 +122,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.Land, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.Land, new { htmlAttributes = new { @class = "form-control", Value = @Session["Land"].ToString() } })
+                            @Html.EditorFor(model => model.Land, new { htmlAttributes = new { @class = "form-control", Value = @Session["Land"].ToString(), style = "margin-left: 10px;" } })
                             @Html.ValidationMessageFor(model => model.Land, "", new { @class = "text-danger" })
                         </div>
                     </div>

@@ -39,7 +39,7 @@ namespace E_shop.Controllers
                     Session["Telefon"] = brugerOplysninger.Telefon;
                     Session["Land"] = brugerOplysninger.Land;
                     return View("efterLogin");
-                }                
+                }
             }
         }
 
@@ -147,10 +147,21 @@ namespace E_shop.Controllers
         {
             using (DatabaseEntities db = new DatabaseEntities())
             {
-                var brugerOplysninger = db.Bruger.Where(x => x.Mail == nyModel.Mail && x.Adgangskode == nyModel.Adgangskode).FirstOrDefault();
-                if (brugerOplysninger == null)
+                 var brugerOplysninger = db.Bruger.Where(x => x.Mail == nyModel.Mail && x.Adgangskode == nyModel.Adgangskode && x.ForNavn == nyModel.ForNavn && x.EfterNavn == nyModel.EfterNavn && x.Adresse == nyModel.Adresse && x.Postnr == nyModel.Postnr && x.By == nyModel.By && x.Telefon == nyModel.Telefon && x.Land == nyModel.Land).FirstOrDefault();
+
+                string Fornavn = nyModel.ForNavn;
+                string EfterNavn = nyModel.EfterNavn;
+                string Adresse = nyModel.Adresse;
+                string Postnr = nyModel.Postnr;
+                string By = nyModel.By;
+                string Telefon = nyModel.Telefon;
+                string Land = nyModel.Land;
+                string Mail = nyModel.Mail;
+                string Adgangskode = nyModel.Adgangskode;
+
+                if (brugerOplysninger == null || (Fornavn == null && EfterNavn == null && Adresse == null && Postnr == null && By == null && Telefon == null && Land == null && Mail == null && Adgangskode == null))
                 {
-                    nyModel.LoginErrorMessage = "Kunne ikke gennemføre købet grundet forkert Email eller adgangskode";
+                    nyModel.LoginErrorMessage = "Kunne ikke gennemføre købet grundet forkert Email eller adgangskode og, eller grundet manglende eller forkerte informationer";
                     return View("Checkoutdata", nyModel);
                 }
                 else
@@ -162,9 +173,31 @@ namespace E_shop.Controllers
 
 
         [HttpPost]
-        public ActionResult Checkoutnodata()
+        public ActionResult Checkoutnodata(Bruger nyModel)
         {
-            return View("KøbGennemført");
+            using (DatabaseEntities db = new DatabaseEntities())
+            {
+                string Fornavn = nyModel.ForNavn;
+                string EfterNavn = nyModel.EfterNavn;
+                string Adresse = nyModel.Adresse;
+                string Postnr = nyModel.Postnr;
+                string By = nyModel.By;
+                string Telefon = nyModel.Telefon;
+                string Land = nyModel.Land;
+                string Mail = nyModel.Mail;
+                string Adgangskode = nyModel.Adgangskode;
+
+                if (Fornavn == null && EfterNavn == null && Adresse == null && Postnr == null && By == null && Telefon == null && Land == null && Mail == null && Adgangskode == null)
+                {
+                    nyModel.LoginErrorMessage = "Kunne ikke gennemføre købet grundet manglende informationer";
+                    return View("Checkoutnodata", nyModel);
+                }
+                else
+                {
+                    return View("KøbGennemført");
+
+                }
+            }
         }
 
 

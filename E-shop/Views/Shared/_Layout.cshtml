@@ -62,14 +62,16 @@
 
 
                     <li style="margin-top: auto; margin-bottom: auto; margin-right: 50px;">
-                        <a class="navbar-brand icon" href="@Url.Action("Support", "Home")">
-                            <div style=" height: 60px; position: relative; top: -20px;">
-                                <img src="~/Billeder/headset.svg" class="supprt" />
-                                <p class="sort-tekst" style="font-size: 15px;">
-                                    Support
-                                </p>
+                        <div type="button" class="show-modal" data-toggle="modal" data-target="#myModal" style="background-color: white;">
+                            <div>
+                                <a href="@Url.Action("Support", "Home")">
+                                    <img src="~/Billeder/headset.svg" class="login" />
+                                    <p class="sort-tekst" style="font-size: 15px;">
+                                        Support
+                                    </p>
+                                </a>
                             </div>
-                        </a>
+                        </div>
                     </li>
 
                     <li style="margin-top: auto; margin-bottom: auto; margin-right: 50px;">
@@ -99,9 +101,12 @@
                         </div>
 
                     </li>   
-                    <li>
-                        <div>
-                            @Html.Partial("_shoppingCart")
+
+                    <li style="margin-top: auto; margin-bottom: auto; margin-right: 50px;">
+                        <div type="button" class="show-modal" data-toggle="modal" data-target="#myModal" style="background-color: white;">
+                            <div>
+                                @Html.Partial("_shoppingCart")
+                            </div>
                         </div>
                     </li>
                  
