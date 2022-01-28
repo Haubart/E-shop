@@ -149,18 +149,19 @@ namespace E_shop.Controllers
             {
                  var brugerOplysninger = db.Bruger.Where(x => x.Mail == nyModel.Mail && x.Adgangskode == nyModel.Adgangskode && x.ForNavn == nyModel.ForNavn && x.EfterNavn == nyModel.EfterNavn && x.Adresse == nyModel.Adresse && x.Postnr == nyModel.Postnr && x.By == nyModel.By && x.Telefon == nyModel.Telefon && x.Land == nyModel.Land).FirstOrDefault();
 
-                string Fornavn = db.Bruger.Where(x => x.ForNavn == nyModel.ForNavn).ToString();
-                string EfterNavn = db.Bruger.Where(x => x.EfterNavn == nyModel.EfterNavn).ToString();
-                string Adresse = db.Bruger.Where(x => x.Adresse == nyModel.Adresse).ToString();
-                string Postnr = db.Bruger.Where(x => x.Postnr == nyModel.Postnr).ToString();
-                string By = db.Bruger.Where(x => x.By == nyModel.By).ToString();
-                string Telefon = db.Bruger.Where(x => x.Telefon == nyModel.Telefon).ToString();
-                string Land = db.Bruger.Where(x => x.Land == nyModel.Land).ToString();
-                string Mail = db.Bruger.Where(x => x.Mail == nyModel.Mail).ToString();
-                string Adgangskode = db.Bruger.Where(x => x.Adgangskode == nyModel.Adgangskode).ToString();
+                string dinmor = nyModel.ForNavn;
+                string EfterNavn = nyModel.EfterNavn;
+                string Adresse = nyModel.Adresse;
+                string Postnr = nyModel.Postnr;
+                string By = nyModel.By;
+                string Telefon = nyModel.Telefon;
+                string Land = nyModel.Land;
+                string Mail = nyModel.Mail;
+                string Adgangskode = nyModel.Adgangskode;
 
-                
-                if (brugerOplysninger == null || (Fornavn == null && EfterNavn == null && Adresse == null && Postnr == null && By == null && Telefon == null && Land == null && Mail == null && Adgangskode == null))
+
+
+                if (brugerOplysninger == null || (dinmor == null && EfterNavn == null && Adresse == null && Postnr == null && By == null && Telefon == null && Land == null && Mail == null && Adgangskode == null))
                 {
                     nyModel.LoginErrorMessage = "Kunne ikke gennemføre købet grundet forkert Email eller adgangskode og, eller grundet manglende eller forkerte informationer";
                     return View("Checkoutdata", nyModel);
