@@ -13,25 +13,39 @@
 </head>
 
 <script type="text/javascript">
+    //Funktionen 'AddToCart' er den function der gøre det muligt at tilføje produkter til kurven.
     function AddToCart(item) {
-
+        //Starter med at lave nogle variabler, hvor itemId, sætter en vælger og en attribut dertil.
         var itemId = $(item).attr("itemid");
+        //formData, sættes der noget data i denne variabel, der gør sådan vi kan indsamle alle data som er i det.
         var formData = new FormData();
+        //Her tilsættes der data til formData ItemID'et.
         formData.append("ItemId", itemId);
 
+        //Ajax gør det muligt at sende og læse dat fra en web server.
         $.ajax({
+            //Async true betyder at funktionen bliver ved, selv uden den får noget response
             async: true,
-            type: 'POST',
+            //Laves en type.
+            type: 'POST'
+            //Her sættes contentType til false, sådan der kan undgås JQuery imens, da det kan medfører til at filen ikke bliver parset ordenligt.
             contentType: false,
+            //Yderligere stoppes JQuery med at behandle data.
             processData: false,
+            //Vælger hvor data skal tilgås fra.
             data: formData,
+            //Url sættes
             url: '/Shopping/index',
+            //Hvis den sucesser skal den udføre funktionen.
             success: function (data) {
                 if (data.Success) {
+                    //Så skal teksten til cartItem sige + datacounter, nemlig antallet af produkter i kurven
                     $("#cartItem").text("Cart(" + data.Counter + ")");
+                    //refresh siden.
                     refreshPage()
                 }
             },
+            //Hvis der slår fejl, så lav alert hvor der står nedenstående.
             error: function () {
                 alert("There is some problem.");
             }
@@ -52,7 +66,7 @@
 
     }
     function givværdi() {
-        document.getElementById("filter").value = "Johnny Bravo";
+        document.getElementById("filter").value = "Computer";
     }
 
 
@@ -61,26 +75,15 @@
 
 
 <body class="font">
-    @using (Html.BeginForm("index", "Shopping", FormMethod.Get))
-    {
+    <div class="col-sm-3">
+        @using (Html.BeginForm("index", "Shopping", FormMethod.Get))
+        {
+            <div class="hidden">
+                @Html.TextBox("filter")
 
-
-
-
-        <div class="hidden">
-           @Html.TextBox("filter")
-  
-        </div>
-        <input id="ok" type="submit" value="filter" onclick="givværdi()" />
-    }   
-
-    <div class="category-border-wrap col-sm-3">
-
-        <div onclick="" class="category">
-
-
-            COMPUTER
-        </div>
+            </div>
+            <input id="ok" type="submit" value="COMPUTER" onclick="givværdi()" class="category" />
+        }
     </div>
 
     <div class="category-border-wrap col-sm-3">
@@ -104,19 +107,21 @@
 
 <br />
 <br />
+<!--Herunder er en tabel der viser de givne produkter fra databasen.-->
 <table class="table table-striped">
+    <!--Starter med en if-statement, der starter med at tjekke om der er noget i modellen, hvis der ikke er skal den udskrive nedenstående tekst.-->
     @if (Model.Count() == 0)
     {
-
-
         <tr>
             <td colspan="3" style="color:red">
                 No Match Any Document
             </td>
         </tr>
     }
+    //Hvis der er noget i modellen, skal den udføre nedestående, ved brug af en foreach loop.
     else
     {
+        //Denne foreach loop, siger at for hver item i modellen, skal den lave henholdsvis table med data for billedet, navn, beskrivelse og en pris.
         foreach (var item in Model)
         {
             <tr>
@@ -127,11 +132,9 @@
                 <td> @item.Description </td>
 
                 <td> @item.ItemPrice kr. </td>
-
+                <!--Yderligere kan man også tilføje produktet til kurven.-->
                 <td>
-
                     <input style="width: 140px;" type="button" name="AddToCart" value="Add to Cart" class="btnRød btn" itemid="@item.ItemId" id="btnAddToCart" onclick="AddToCart(this); gen();" />
-
                 </td>
             </tr>
         }
