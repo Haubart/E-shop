@@ -85,7 +85,7 @@
 
 <body class="font">
     <br />
-    <div class="row">
+    <div class="row" style="margin-bottom:20px;">
         <!--Beginform, bruges til at kreere en HTML form, hvor der gøres brug af en metode, controller, og form method.-->
         @using (Html.BeginForm("index", "Shopping", FormMethod.Get))
         {
@@ -101,12 +101,11 @@
             <input id="ok" type="submit" value="GAMING" onclick="givværdi4()" class="category col-md-3" />
         }
     </div>
-    <br />
+
 </body>
 
 
-<br />
-<br />
+
 <!--Herunder er en tabel der viser de givne produkter fra databasen.-->
 <table class="table table-striped">
     <!--Starter med en if-statement, der starter med at tjekke om der er noget i modellen, hvis der ikke er skal den udskrive nedenstående tekst.-->
