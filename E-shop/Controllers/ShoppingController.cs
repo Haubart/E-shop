@@ -101,7 +101,7 @@ namespace E_shop.Controllers
                 // vi kigger altså i modellen om 'Category' indeholder vores filter så skal den tilføje det til 
                 // listShoppingViewModel, som vi som vi så sætter til vores return_Model som gør at vi får sendt denne model
                 // med og ikke den der blevet skabt før!
-                return_Model = listShoppingViewModel.Where(x => x.CateGory.Contains(filter) || searching == filter);
+                return_Model = listShoppingViewModel.Where(x => x.CateGory.Contains(filter));
             }
 
             // hvis filter var tomt kommer vi til dette statement:
@@ -129,13 +129,15 @@ namespace E_shop.Controllers
                 // vi kigger altså i modellen om 'Category' indeholder vores filter så skal den tilføje det til 
                 // listShoppingViewModel, som vi som vi så sætter til vores return_Model som gør at vi får sendt denne model
                 // med og ikke den der blevet skabt før!
-                return_Model = listShoppingViewModel.Where(x => x.ItemName.Contains(searching) || searching == null);
+                return_Model = listShoppingViewModel.Where(x => x.ItemName.Contains(searching));
             }
             return View(return_Model);
+
+
+         
+
         }
         
-
-
         // Her laver vi et JsonResult som modtager et ItemId fra vores Index HTML, som vi skal bruge til at tilføje vores 
         // 'Produkt' til  kurven
         [HttpPost]

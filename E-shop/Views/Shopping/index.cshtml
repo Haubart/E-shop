@@ -22,7 +22,7 @@
         //Her tilsættes der data til formData ItemID'et.
         formData.append("ItemId", itemId);
 
-        //Ajax gør det muligt at sende og læse dat fra en web server.
+        //Ajax gør det muligt at sende og læse data fra en web server.
         $.ajax({
             //Async true betyder at funktionen bliver ved, selv uden den får noget response
             async: true,
@@ -39,7 +39,7 @@
             //Hvis den sucesser skal den udføre funktionen.
             success: function (data) {
                 if (data.Success) {
-                    //Så skal teksten til cartItem sige + datacounter, nemlig antallet af produkter i kurven
+                    //Så skal teksten til cartItem sige + datacounter, nemlig antallet af produkter i kurven.
                     $("#cartItem").text("Cart(" + data.Counter + ")");
                     //refresh siden.
                     refreshPage()
@@ -85,7 +85,7 @@
 
 <body class="font">
     <br />
-    <div class="row">
+    <div class="row" style="margin-bottom:20px;">
         <!--Beginform, bruges til at kreere en HTML form, hvor der gøres brug af en metode, controller, og form method.-->
         @using (Html.BeginForm("index", "Shopping", FormMethod.Get))
         {
@@ -101,12 +101,11 @@
             <input id="ok" type="submit" value="GAMING" onclick="givværdi4()" class="category col-md-3" />
         }
     </div>
-    <br />
+
 </body>
 
 
-<br />
-<br />
+
 <!--Herunder er en tabel der viser de givne produkter fra databasen.-->
 <table class="table table-striped">
     <!--Starter med en if-statement, der starter med at tjekke om der er noget i modellen, hvis der ikke er skal den udskrive nedenstående tekst.-->
@@ -134,7 +133,7 @@
                 <td> @item.ItemPrice kr. </td>
                 <!--Yderligere kan man også tilføje produktet til kurven.-->
                 <td>
-                    <input style="width: 140px;" type="button" name="AddToCart" value="Add to Cart" class="btnRød btn" itemid="@item.ItemId" id="btnAddToCart" onclick="AddToCart(this); gen();" />
+                    <input style="width: 140px;" type="button" name="AddToCart" value="Tilføj til kurv" class="btnRød btn" itemid="@item.ItemId" id="btnAddToCart" onclick="AddToCart(this); gen();" />
                 </td>
             </tr>
         }

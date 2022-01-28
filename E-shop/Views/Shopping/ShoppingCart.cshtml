@@ -13,7 +13,7 @@
 
 @using (Html.BeginForm("AddOrder", "Shopping", FormMethod.Post))
 {
-
+    // hvis du ikke har noget i din kurv:
     if (Session["CartCounter"] == null)
     {
 <tr>
@@ -25,6 +25,7 @@
     </td>
 </tr>
     }
+    // ellers vil den vise alle produkter der er i din kurv:
     else
     {
 <table class="table-condensed" style="width: 100%">

@@ -8,6 +8,7 @@
     padding: 50px 0;
     color: #f0f9ff;
     background-color: #282d32;
+    min-height: 400px;
 }
 
     .footer-dark h3 {
@@ -22,7 +23,7 @@
         st-style: none;
         line-height: 1.6;
         font-size: 14px;
-        margin-bottom: 0;
+        margin-bottom: 75px;
     }
 
         .footer-dark ul a {
