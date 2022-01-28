@@ -11,6 +11,7 @@ namespace E_shop.Controllers
 {
     public class ItemController : Controller
     {
+        // Vi laver et objekt af databasen så vi kan tilgå den alle steder gennem controlleren
         private DatabaseEntities objDatabaseEntities;
 
         public ItemController()
@@ -18,8 +19,14 @@ namespace E_shop.Controllers
             objDatabaseEntities = new DatabaseEntities();
         }
         
+
+        // Vi laver et Addimage view som vi skal tilføje produkter til vores hjemmeside:
         public ActionResult Addimage()
         {
+
+
+            // vi laver et objItemViewModel af ItemViewModel og tilføjer de forskellige kategorier til vores objItemViewModel,
+            // så vi kan vælge kategorier til vores produkter:
             ItemViewModel objItemViewModel = new ItemViewModel();
             objItemViewModel.CategorySelectListItems = (from objCat in objDatabaseEntities.Categories
                                                         select new SelectListItem()
@@ -31,13 +38,15 @@ namespace E_shop.Controllers
             return View(objItemViewModel);
         }
 
-
+        // Her til går vi vores JsonResult som modtager objItemViewModel som laver vores produkt og tilføjer den til 
+        // vores database
         [HttpPost]
         public JsonResult Addimage(ItemViewModel objItemViewModel)
         {
+            // her laver vi en string som holder vores path til billedet lokalt set
             string NewImage = Guid.NewGuid() + Path.GetExtension(objItemViewModel.ImagePath.FileName);
             objItemViewModel.ImagePath.SaveAs(Server.MapPath("~/Images/" + NewImage));
-
+            // vi tiføjer vores relevante objekter til  
             Items objItem = new Items();
             objItem.ImagePath = "~/Images/" + NewImage;
             objItem.CategoryID = objItemViewModel.CategoryId;
