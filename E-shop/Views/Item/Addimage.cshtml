@@ -6,12 +6,14 @@
 <h2>Index</h2>
 
 <script type="text/javascript">
+    // Hvis denne knap trykkes på så kaldes SaveItem()
     $(document).ready(function () {
         $("#btnSave").click(function () {
             SaveItem();
         });
     });
 
+    // fjerner alle værdier der i fleterne
     function ResetItem() {
         $("#CategoryId").val("1");
         $("#ItemCode").val("");
@@ -21,7 +23,11 @@
         $("#ImagePath").val("");
     }
 
+    //her er vores SaveItem funktion
     function SaveItem() {
+
+        // denne funktion indeholder en form som i bund grund er objektet i forhold til C#,
+        // denne form gør sådan vi kan indsamle alle data som er i 
         var formData = new FormData();
         formData.append("CategoryId", $("#CategoryId").val());
         formData.append("ItemCode", $("#ItemCode").val());
@@ -29,7 +35,9 @@
         formData.append("Description", $("#Description").val());
         formData.append("ItemPrice", $("#ItemPrice").val());
         formData.append("ImagePath", $("#ImagePath").get(0).files[0]);
-
+        // så bruger vi noget der hedder ajax, som er en metoder man kan 
+        // bruge i forhold til at sende data til vores controller gennem et
+        // kald i controlleren som kaldes JsonResult
         $.ajax({
             async: true,
             dataType: 'JSON',
@@ -38,6 +46,8 @@
             processData: false,
             url: '/Item/Addimage',
             data: formData,
+            // Hvis  det lykkes så sender vi data til vores controller hvis ikke så kaldes vores error funktion som skriver
+            // "Der er et problem med at tilføje produktet"
             success: function (data) {
                 if (data.Success) {
                     alert(data.Message);
@@ -45,13 +55,13 @@
                 }
             },
             error: function () {
-                alert("There is some problem to add Item.");
+                alert("Der er et problem med at tilføje produktet.");
             }
         });
     }
-
-  
 </script>
+
+<!-- Dette er formen til udfyldning af produkter.-->
 
 <div class="container">
     <div class="col-md-4">

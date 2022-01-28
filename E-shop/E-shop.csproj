@@ -198,6 +198,7 @@
     <Content Include="Billeder\magnifying-glass.svg" />
     <Content Include="Billeder\monitor.svg" />
     <Content Include="Billeder\right-arrow.svg" />
+    <Content Include="Billeder\sadsmiley.svg" />
     <Content Include="Billeder\usb-c-cable.svg" />
     <Content Include="Billeder\user.svg" />
     <Content Include="Billeder\wifi %281%29.svg" />
