@@ -1,5 +1,6 @@
 ﻿@model E_shop.Models.Bruger
 @{
+    //Koden herunder redirecter en fra profil siden til login siden hvis ikke man er logget ind. UserID er da lig med null hvis ikke man er logget ind.
     if (Session["UserID"] == null)
     {
         Response.Redirect("/Home/Login");
@@ -22,7 +23,6 @@
             <h1 style="display: inline">Min profil</h1>
             <label style="display: inline" class="text-danger">@Html.DisplayFor(model => model.LoginErrorMessage)</label>
         
-        
         <hr />
         <h3>Dine personoplsyninger</h3>
         <p>Herunder kan du se dine personoplysninger du gav, da du oprettede dig som bruger hos LightningTech.</p>
@@ -35,7 +35,6 @@
             <p class="col-md-2 control-label"><b>Fornavn</b></p>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ForNavn, new { htmlAttributes = new { @class = "form-control", placeholder = @Session["ForNavn"].ToString() } })
-                @*@Html.ValidationMessageFor(model => model.ForNavn, "", new { @class = "text-danger" })*@
             </div>
         </div>
 
@@ -43,7 +42,6 @@
             <p class="col-md-2 control-label"><b>Efternavn</b></p>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.EfterNavn, new { htmlAttributes = new { @class = "form-control", placeholder = @Session["EfterNavn"].ToString() } })
-                @*@Html.ValidationMessageFor(model => model.EfterNavn, "", new { @class = "text-danger" })*@
             </div>
         </div>
 
@@ -52,7 +50,6 @@
             @Html.LabelFor(model => model.Adresse, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Adresse, new { htmlAttributes = new { @class = "form-control", placeholder = @Session["Adresse"].ToString() } })
-                @*@Html.ValidationMessageFor(model => model.Adresse, "", new { @class = "text-danger" })*@
             </div>
         </div>
 
@@ -60,7 +57,6 @@
             @Html.LabelFor(model => model.Postnr, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Postnr, new { htmlAttributes = new { @class = "form-control", placeholder = @Session["Postnr"].ToString() } })
-                @*@Html.ValidationMessageFor(model => model.Postnr, "", new { @class = "text-danger" })*@
             </div>
         </div>
 
@@ -68,7 +64,6 @@
             @Html.LabelFor(model => model.By, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.By, new { htmlAttributes = new { @class = "form-control", placeholder = @Session["By"].ToString() } })
-                @*@Html.ValidationMessageFor(model => model.By, "", new { @class = "text-danger" })*@
             </div>
         </div>
 
@@ -76,7 +71,6 @@
             <p class="col-md-2 control-label"><b>Telefonnummer</b></p>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Telefon, new { htmlAttributes = new { @class = "form-control", placeholder = @Session["Telefon"].ToString() } })
-                @*@Html.ValidationMessageFor(model => model.Telefon, "", new { @class = "text-danger" })*@
             </div>
         </div>
 
@@ -84,7 +78,6 @@
             @Html.LabelFor(model => model.Land, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Land, new { htmlAttributes = new { @class = "form-control", placeholder = @Session["Land"].ToString() } })
-                @*@Html.ValidationMessageFor(model => model.Land, "", new { @class = "text-danger" })*@
             </div>
         </div>
 
@@ -97,7 +90,6 @@
             <p class="col-md-2 control-label"><b>Email</b></p>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Mail, new { htmlAttributes = new { @class = "form-control", placeholder = @Session["Mail"].ToString() } })
-                @*@Html.ValidationMessageFor(model => model.Mail, "", new { @class = "text-danger" })*@
             </div>
         </div>
 
@@ -107,7 +99,6 @@
             @Html.LabelFor(model => model.Adgangskode, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Adgangskode, new { htmlAttributes = new { @class = "form-control" } })
-                @*@Html.ValidationMessageFor(model => model.Adgangskode, "", new { @class = "text-danger" })*@
             </div>
         </div>
 
@@ -116,8 +107,6 @@
                 <input class="btnRød" type="submit" value="Opdater Oplysninger" />
             </div>
         </div>
-
-
 
     </div>
     }

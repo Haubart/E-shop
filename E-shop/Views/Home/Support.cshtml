@@ -24,12 +24,11 @@
         </div>
     </div>
 
-
     <h3>Ofte stillede spørgsmål</h3>
     <div>
 
         <div class="dropdown">
-            <button onclick="myFunction()" class="dropbtn">Hvordan sletter jeg min bestilling?</button>
+            <button onclick="myFunction()" class="dropbtn">Hvordan sletter jeg min bestilling?</button> <!--Når man klikker på denne knap så bliver funktionen myFunction kaldt, dette sker for alle de andre knapper herunder også.-->
             <div id="myDropdown" class="dropdown-content">
                 <br />
                 <p>• Som privatkunde kan du slette din bestilling via kundecenter på hjemmesiden, hvis bestillingen endnu ikke er blevet bekræftet afsendt.</p>
@@ -41,7 +40,6 @@
             </div>
         </div>
         <br />
-
 
         <div class="dropdown">
             <button onclick="myFunction1()" class="dropbtn">Min pakke er afsendt, men ikke ankommet?</button>
@@ -59,7 +57,6 @@
         </div>
         <br />
 
-
         <div class="dropdown">
             <button onclick="myFunction2()" class="dropbtn">Jeg bliver mødt af krav om NEM ID ved betaling af min ordre?</button>
             <div id="myDropdown2" class="dropdown-content">
@@ -75,7 +72,6 @@
         </div>
         <br />
 
-
         <div class="dropdown">
             <button onclick="myFunction3()" class="dropbtn">Jeg har bestilt med Mastercard og derefter annulleret ordren. Hvornår frigives beløbet?</button>
             <div id="myDropdown3" class="dropdown-content">
@@ -85,7 +81,6 @@
             </div>
         </div>
         <br />
-
 
         <div class="dropdown">
             <button onclick="myFunction4()" class="dropbtn">Hvor ser jeg status på min ordre?</button>
@@ -97,7 +92,6 @@
         </div>
         <br />
 
-
         <div class="dropdown">
             <button onclick="myFunction5()" class="dropbtn">Jeg skal returnere min vare, hvad gør jeg?</button>
             <div id="myDropdown5" class="dropdown-content">
@@ -108,7 +102,6 @@
         </div>
         <br />
 
-
         <div class="dropdown">
             <button onclick="myFunction6()" class="dropbtn">Jeg har en vare der er defekt, hvad gør jeg?</button>
             <div id="myDropdown6" class="dropdown-content">
@@ -116,6 +109,7 @@
                 <p>• Inden du gør andet, skal du oprette en reklamationssag. Det kan du gøre ved at klikke <a href="#">her</a>.</p>
                 <br />
             </div>
+        </div>
 
             <div style="margin-top:50px;">
                 <h3>Min profil</h3>
@@ -141,7 +135,7 @@
                 <p><b>Fandt du ikke det du søgte?</b></p>
                 <p>Du er altid velkommen til at kontakte os ved yderligere spørgsmål:</p>
             </div>
-        </div>
+        
 
         <div class="row" style="padding-top: 30px; text-align:center; width: 700px; margin: 0px; font-size: 13px;">
             <div class="col-sm-4 visible-lg-md-sm hidden-xs">
@@ -171,7 +165,6 @@
     </div>
 </body>
 </html>
-
 
 <style>
     /* Dropdown Button */
@@ -209,153 +202,35 @@
 
 </style>
 
-
-
-
 <script>
-    /* When the user clicks on the button,
-    toggle between hiding and showing the dropdown content */
+    /*Funktionen herunder kaldes når der trykkes på knappen.
+     Funktionen tilføjer en klasse på det element med ID "myDropdown", hvilket er dropdown boksen der kommer frem når man trykker på knappen. 
+     Klassen toggles, altså tilføjes når man trykker en gang på knappen og fjernes når man trykker igen på knappen.
+     Der er en funktion til hver dropdown boks*/
     function myFunction() {
         document.getElementById("myDropdown").classList.toggle("show");
     }
-
-    // Close the dropdown menu if the user clicks outside of it
-    window.onclick = function (event) {
-        if (!event.target.matches('.dropbtn')) {
-            var dropdowns = document.getElementsByClassName("dropdown-content");
-            var i;
-            for (i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-            }
-        }
-    }
-
-
-    /* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
     function myFunction1() {
         document.getElementById("myDropdown1").classList.toggle("show");
     }
 
-    // Close the dropdown menu if the user clicks outside of it
-    window.onclick = function (event) {
-        if (!event.target.matches('.dropbtn')) {
-            var dropdowns = document.getElementsByClassName("dropdown-content");
-            var i;
-            for (i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-            }
-        }
-    }
-
-
-    /* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
     function myFunction2() {
         document.getElementById("myDropdown2").classList.toggle("show");
     }
 
-    // Close the dropdown menu if the user clicks outside of it
-    window.onclick = function (event) {
-        if (!event.target.matches('.dropbtn')) {
-            var dropdowns = document.getElementsByClassName("dropdown-content");
-            var i;
-            for (i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-            }
-        }
-    }
-
-
-    /* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
     function myFunction3() {
         document.getElementById("myDropdown3").classList.toggle("show");
     }
 
-    // Close the dropdown menu if the user clicks outside of it
-    window.onclick = function (event) {
-        if (!event.target.matches('.dropbtn')) {
-            var dropdowns = document.getElementsByClassName("dropdown-content");
-            var i;
-            for (i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-            }
-        }
-    }
-
-
-    /* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
     function myFunction4() {
         document.getElementById("myDropdown4").classList.toggle("show");
     }
 
-    // Close the dropdown menu if the user clicks outside of it
-    window.onclick = function (event) {
-        if (!event.target.matches('.dropbtn')) {
-            var dropdowns = document.getElementsByClassName("dropdown-content");
-            var i;
-            for (i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-            }
-        }
-    }
-
-
-    /* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
     function myFunction5() {
         document.getElementById("myDropdown5").classList.toggle("show");
     }
 
-    // Close the dropdown menu if the user clicks outside of it
-    window.onclick = function (event) {
-        if (!event.target.matches('.dropbtn')) {
-            var dropdowns = document.getElementsByClassName("dropdown-content");
-            var i;
-            for (i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-            }
-        }
-    }
-
-
-    /* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
     function myFunction6() {
         document.getElementById("myDropdown6").classList.toggle("show");
-    }
-
-    // Close the dropdown menu if the user clicks outside of it
-    window.onclick = function (event) {
-        if (!event.target.matches('.dropbtn')) {
-            var dropdowns = document.getElementsByClassName("dropdown-content");
-            var i;
-            for (i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-            }
-        }
     }
 </script>

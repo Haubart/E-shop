@@ -11,17 +11,21 @@ namespace E_shop.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations; //For at kunne tilføje required skal dette namespace bruges.
 
     public partial class Bruger
     {
         public int BrugerID { get; set; }
-        [Required(ErrorMessage = "Dette felt er nødvendigt.")]
+        [Required(ErrorMessage = "Dette felt er nødvendigt.")] /*Her bruges Required attributten som gør at feltet er nødvendigt at udfylde før man kan komme videre. 
+                                                                Hvis ikke det er udfylt får man den errormessage der er skrevet. For at display errormessagen skal man dog tilføje en 
+                                                                "Html.ValidationMessageFor" for den model man vil bruge, altså Bruger og så angive hvilken data messagen skal sættes på. 
+                                                                Det skal man gøre på den html side hvor man vil have vist errormessagen. Dette kan blandt andre views ses i "Opret" viewet.*/
         public string ForNavn { get; set; }
         [Required(ErrorMessage = "Dette felt er nødvendigt.")]
         public string EfterNavn { get; set; }
         [Required(ErrorMessage = "Dette felt er nødvendigt.")]
-        [DataType(DataType.Password)]
+        [DataType(DataType.Password)] /*Her bruges "DataType" attributten som i dette tilfælde viser at det er af formen password. Det gør at karakterene der skrives i denne boks, bliver til prikker.
+                                      Derudover slettes passworded også fra den side du er på hvis du reloader den.*/
         public string Adgangskode { get; set; }
         [Required(ErrorMessage = "Dette felt er nødvendigt.")]
         public string Mail { get; set; }
@@ -37,7 +41,7 @@ namespace E_shop.Models
         [Required(ErrorMessage = "Dette felt er nødvendigt.")]
         public string Land { get; set; }
 
-        public string LoginErrorMessage { get; set; }
+        public string LoginErrorMessage { get; set; } //Her sættes en besked op som kan kaldes i homecontrolleren når der skal vises en errormessage, som f.eks at mail, eller password er forkert når man logger ind.
 
     }
 }

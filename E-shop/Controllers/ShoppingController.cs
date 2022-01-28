@@ -234,7 +234,7 @@ namespace E_shop.Controllers
             Session["CartItem"] = null;
             // sætter   Session["CartCounter"] til null:
             Session["CartCounter"] = null;
-            // Når denne ActionResult aktiveres så går vi til denne adreese /Home/Checkout:
+            // Når denne ActionResult aktiveres så går vi til denne adreese /Home/Checkout (mere om den i Home controlleren):
             return RedirectToAction("Checkout", "Home");
         }
 

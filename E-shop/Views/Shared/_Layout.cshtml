@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET E_shop</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="~/Content/Site.css" rel="stylesheet" />
@@ -18,15 +16,12 @@
     <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" />
     <link rel="stylesheet" href="~/Content/style.css" />
     <link rel="stylesheet" href="~/Site.css" />
     <link rel="stylesheet" href="~/Content/Login-pop-up-vindue.css" />
-
 </head>
 <body class="body">
     <nav class="navbar navbar-inverse navbar-fixed-top navbar-expand-sm" style="background-color: white; width: 1000px; margin: auto; height: 80px; border-right: solid; border-left: solid; border-bottom: solid;">
@@ -42,7 +37,6 @@
                     <h1 class="sort-tekst" style="margin: 0px; font-size: 25px; font-weight: bold;">LightningTech</h1>
                 </a>
 
-             
             </div>
             <div class="navbar-collapse collapse navbar-expand-sm">
                 <ul class="nav navbar-nav navbar-right">
@@ -54,12 +48,6 @@
                             <input type="submit" value="Search" />
                         }
                     </li>
-
-
-
-
-
-
 
                     <li style="margin-top: auto; margin-bottom: auto; margin-right: 50px;">
                         <div type="button" class="show-modal" data-toggle="modal" data-target="#myModal" style="background-color: white;">
@@ -74,20 +62,23 @@
                         </div>
                     </li>
 
+                    <!--List item'et herunder er lidt specielt, fordi det er her dit navn displayes hvis man er logget ind. 
+                        Hvis ikke man er logget ind så viser den bare teksten "Log ind"-->
                     <li style="margin-top: auto; margin-bottom: auto; margin-right: 50px;">
                         <div type="button" class="show-modal" data-toggle="modal" data-target="#myModal" style="background-color: white;">
                             <div>
-                                @if (Session["UserID"] != null)
+                                @if (Session["UserID"] != null) /*Den tjekker om UserID ikke er lig med nul. Hvis det ikke er lig med null betyder det at man er logget ind,
+                                    og derfor bruges "Session["ForNavn"].ToString()" til at sætte navnet på brugeren ind under profil ikonet*/
                                 {
                                     <a href="@Url.Action("Profil", "Home")">
                                         <img src="~/Billeder/user.svg" class="login" />
                                         <p class="sort-tekst" style="font-size: 15px;">
-                                            @Session["ForNavn"].ToString()
+                                            @Session["ForNavn"].ToString() <!--Her indsættes brugerens navn-->
                                         </p>
                                     </a>
                                 }
 
-                                else
+                                else //Hvis UserID er lig med null og man derfor ikke er logget ind vises teksten "Log ind" bare under profil ikonet.
                                 {
                                     <a href="@Url.Action("Login", "Home")">
                                         <img src="~/Billeder/user.svg" class="login" />
@@ -105,7 +96,8 @@
                     <li style="margin-top: auto; margin-bottom: auto; margin-right: 50px;">
                         <div type="button" class="show-modal" data-toggle="modal" data-target="#myModal" style="background-color: white;">
                             <div>
-                                @Html.Partial("_shoppingCart")
+                                @Html.Partial("_shoppingCart") <!--Her inddrages et partial view. Det er en måde at lave et view på som kan bruges på flere sider.
+                                                                   Her bruger vi det dog kun til layout siden for at se hvordan det fungerede.-->
                             </div>
                         </div>
                     </li>
@@ -129,7 +121,6 @@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
  
-
     <div class="footer-dark">
         <footer>
             <div class="container">
@@ -178,19 +169,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 
-
-
-
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-
-
-
-
-
 </body>
 </html>
 

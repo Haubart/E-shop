@@ -1,23 +1,26 @@
-﻿<link href="~/Content/Site.css"/>
+﻿<link href="~/Content/Site.css" />
 <link href="~/Content/style.css" />
 
+<!--Her er det partial view vi indsætter i vores layout side.
+    Det fungere på samme måde som den del af layout siden der tjekker om man er logget ind, og som indskriver dit navn under profil ikonet hvis man er logget ind.-->
+<!--Her tjekker den dog ikke om man er logget ind, men om "CartCounter" er lig null, hvis den er det så skal der bare stå "Cart" under cart ikonet "basket",
+    og hvis den ikke er lig null så displayes nummeret af cartitems ved "Session["CartCounter"].ToString()"-->
+@if (Session["CartCounter"] == null)
+{
+    <a href="@Url.Action("ShoppingCart", "Shopping")">
+        <img src="~/Billeder/basket.svg" class="login" />
+        <p class="sort-tekst" id="CartItem" style="font-size: 15px;">
+            Cart
+        </p>
+    </a>
+}
 
-        @if (Session["CartCounter"] == null)
-        {
-        <a href="@Url.Action("ShoppingCart", "Shopping")">
-            <img src="~/Billeder/basket.svg" class="login" />
-            <p class="sort-tekst" id="CartItem" style="font-size: 15px;">
-                Cart
-            </p>
-        </a>
-        }
-        
-        else
-        {
-        <a href="@Url.Action("ShoppingCart", "Shopping")">
-            <img src="~/Billeder/basket.svg" class="login" />
-            <p class="sort-tekst" id="CartItem" style="font-size: 15px;">
-                Cart (@Session["CartCounter"].ToString())
-            </p>
-        </a>
-        }
+else
+{
+    <a href="@Url.Action("ShoppingCart", "Shopping")">
+        <img src="~/Billeder/basket.svg" class="login" />
+        <p class="sort-tekst" id="CartItem" style="font-size: 15px;">
+            Cart (@Session["CartCounter"].ToString())
+        </p>
+    </a>
+}

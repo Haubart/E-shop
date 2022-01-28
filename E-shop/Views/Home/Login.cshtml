@@ -1,17 +1,14 @@
 ﻿@model E_shop.Models.Bruger
 
 @{
-    Layout = null;
+    Layout = null; //Der inddrages ikke layout siden på dette view
 
+    //Koden herunder redirecter brugeren til profil siden hvis man allerede er logget ind og derfor er userID ikke lig med null
     if(Session["userID"] != null)
     {
         Response.Redirect("~/Home/Profil");
     }
-
  }
-
-
-
 <!DOCTYPE html>
 <html>
 
