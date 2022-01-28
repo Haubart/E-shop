@@ -22,7 +22,7 @@
         //Her tilsættes der data til formData ItemID'et.
         formData.append("ItemId", itemId);
 
-        //Ajax gør det muligt at sende og læse dat fra en web server.
+        //Ajax gør det muligt at sende og læse data fra en web server.
         $.ajax({
             //Async true betyder at funktionen bliver ved, selv uden den får noget response
             async: true,
@@ -39,7 +39,7 @@
             //Hvis den sucesser skal den udføre funktionen.
             success: function (data) {
                 if (data.Success) {
-                    //Så skal teksten til cartItem sige + datacounter, nemlig antallet af produkter i kurven
+                    //Så skal teksten til cartItem sige + datacounter, nemlig antallet af produkter i kurven.
                     $("#cartItem").text("Cart(" + data.Counter + ")");
                     //refresh siden.
                     refreshPage()
