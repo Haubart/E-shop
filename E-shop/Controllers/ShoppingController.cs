@@ -15,6 +15,7 @@ namespace E_shop.Controllers
 
         private IEnumerable<ShoppingViewModel> listShoppingViewModel;
         public IEnumerable<ShoppingViewModel> return_Model;
+
         public ShoppingController()
         {
             objDatabaseEntities = new DatabaseEntities();
@@ -22,9 +23,7 @@ namespace E_shop.Controllers
         }
 
         public ActionResult index(string searching, string filter)
-        {
-
-
+            {
             if (searching == null)
             {
                 searching = "";
