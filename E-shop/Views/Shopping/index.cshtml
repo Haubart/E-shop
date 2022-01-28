@@ -27,7 +27,7 @@
             //Async true betyder at funktionen bliver ved, selv uden den får noget response
             async: true,
             //Laves en type.
-            type: 'POST'
+            type: 'POST',
             //Her sættes contentType til false, sådan der kan undgås JQuery imens, da det kan medfører til at filen ikke bliver parset ordenligt.
             contentType: false,
             //Yderligere stoppes JQuery med at behandle data.
@@ -65,43 +65,43 @@
         window.location.reload(true);
 
     }
+    //Laver en funktion, der finder et element, filter, og tilsætter den en værdi.
     function givværdi() {
         document.getElementById("filter").value = "Computer";
     }
-
+    function givværdi2() {
+        document.getElementById("filter").value = "Mobil";
+    }
+    function givværdi3() {
+        document.getElementById("filter").value = "TV og Lyd";
+    }
+    function givværdi4() {
+        document.getElementById("filter").value = "Gaming";
+    }
 
 
 </script>
 
 
 <body class="font">
-    <div class="col-sm-3">
+    <br />
+    <div class="row">
+        <!--Beginform, bruges til at kreere en HTML form, hvor der gøres brug af en metode, controller, og form method.-->
         @using (Html.BeginForm("index", "Shopping", FormMethod.Get))
         {
             <div class="hidden">
+                <!--Her har vi lavet en hidden tekst box, med en søg knap, hvilket har en fast søge value.-->
                 @Html.TextBox("filter")
 
             </div>
-            <input id="ok" type="submit" value="COMPUTER" onclick="givværdi()" class="category" />
+            //Her har vi lavet en input type submit, hvilket submitter den givne value, ved brug af en onclick funktion.
+            <input id="ok" type="submit" value="COMPUTER" onclick="givværdi()" class="category col-md-3"/>
+            <input id="ok" type="submit" value="MOBIL" onclick="givværdi2()" class="category col-md-3" />
+            <input id="ok" type="submit" value="TV OG LYD" onclick="givværdi3()" class="category col-md-3" />
+            <input id="ok" type="submit" value="GAMING" onclick="givværdi4()" class="category col-md-3" />
         }
     </div>
-
-    <div class="category-border-wrap col-sm-3">
-        <div onclick="" class="category">
-            MOBIL
-        </div>
-    </div>
-    <div class="category-border-wrap col-sm-3">
-        <div onclick="" class="category">
-            TV & LYD
-        </div>
-    </div>
-    <div class="category-border-wrap col-sm-3">
-        <div onclick="" class="category">
-            GAMING
-        </div>
-    </div>
-    <br /><br /><br /><br />
+    <br />
 </body>
 
 
