@@ -10,16 +10,6 @@ namespace E_shop.Controllers
 {
     public class HomeController : Controller
     {
-    
-
-  
-
-
-        public ActionResult Test()
-        {
-            return View();
-        }
-
         public ActionResult Login()
         {
             return View();
@@ -77,7 +67,7 @@ namespace E_shop.Controllers
                 var brugerOplysninger = db.Bruger.Where(x => x.Mail == nyModel.Mail && x.Adgangskode == nyModel.Adgangskode).FirstOrDefault();
                 if (brugerOplysninger == null)
                 {
-                    nyModel.LoginErrorMessage = "Kunne ikke opdatere oplysninger grundet forkert brugernavn eller adgangskode";
+                    nyModel.LoginErrorMessage = "Kunne ikke opdatere oplysninger grundet forkert Email eller adgangskode";
                     return View("Profil", nyModel);
                 }
                 else
@@ -100,38 +90,10 @@ namespace E_shop.Controllers
             return View();
         }
 
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-
         public ActionResult Support()
         {
             return View();
         }
-
-        public ActionResult Checkout()
-        {
-            if (Session["userID"] != null)
-            {
-                return View("Checkoutdata");
-            }
-            else
-            {
-                return View("Checkoutnodata");
-            }
-        }
-
 
         public ActionResult Opret()
         {
@@ -167,21 +129,50 @@ namespace E_shop.Controllers
             return View(model);
         }
 
-       
-
-
-        public ActionResult AddImage()
+        public ActionResult Checkout()
         {
-      
-            return View();
+            if (Session["userID"] != null)
+            {
+                return View("Checkoutdata");
+            }
+            else
+            {
+                return View("Checkoutnodata");
+            }
         }
+
 
         [HttpPost]
-        public ActionResult AddImage(Items model, HttpPostedFileBase image1, string searching )
+        public ActionResult Checkoutdata(Bruger nyModel)
         {
-
-            return View();
-
+            using (DatabaseEntities db = new DatabaseEntities())
+            {
+                var brugerOplysninger = db.Bruger.Where(x => x.Mail == nyModel.Mail && x.Adgangskode == nyModel.Adgangskode).FirstOrDefault();
+                if (brugerOplysninger == null)
+                {
+                    nyModel.LoginErrorMessage = "Kunne ikke gennemføre købet grundet forkert Email eller adgangskode";
+                    return View("Checkoutdata", nyModel);
+                }
+                else
+                {
+                    return View("KøbGennemført");
+                }
+            }
         }
+
+
+        [HttpPost]
+        public ActionResult Checkoutnodata()
+        {
+            return View("KøbGennemført");
+        }
+
+
+        public ActionResult KøbGennemført()
+        {
+            return View();
+        }
+
+
     }
 }

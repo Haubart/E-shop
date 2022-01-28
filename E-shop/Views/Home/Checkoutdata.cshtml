@@ -58,98 +58,115 @@
 
 
 
-        @using (Html.BeginForm())
+        @using (Html.BeginForm("Checkoutdata", "Home", FormMethod.Post))
         {
-            <div class="form-horizontal">
-                <hr />
-                <h3>Dine personoplsyninger</h3>
-                <p>For at fuldføre dit køb hos LightningTech skal du blot udfylde dine personoplysninger.</p>
-                <p>Er du logget ind på forhånd er alle oplysninger indskrevet på forhånd, og du skal dermed kun verificere dig med din adgangskode under valideringsoplysninger.</p>
-                <br />
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="form-group">
-                    <p class="col-md-2 control-label"><b>Fornavn</b></p>
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.ForNavn, new { htmlAttributes = new { @class = "form-control", Value = @Session["ForNavn"].ToString() } })
+         <div class="form-horizontal">
+         <hr />
+            <div class="row">
+                <div class="col-sm-6">
+                    <h3>Dine personoplsyninger</h3>
+                    <p>For at fuldføre dit køb hos LightningTech skal du blot udfylde dine personoplysninger.</p>
+                    <p>Er du logget ind på forhånd er alle oplysninger indskrevet på forhånd, og du skal dermed kun verificere dig med din adgangskode under valideringsoplysninger.</p>
+                    <br />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <p class="col-md-2 control-label"><b>Fornavn</b></p>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.ForNavn, new { htmlAttributes = new { @class = "form-control", Value = @Session["ForNavn"].ToString() } })
+                            @Html.ValidationMessageFor(model => model.ForNavn, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <p class="col-md-2 control-label"><b>Efternavn</b></p>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.EfterNavn, new { htmlAttributes = new { @class = "form-control", Value = @Session["EfterNavn"].ToString() } })
+                            @Html.ValidationMessageFor(model => model.EfterNavn, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Adresse, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Adresse, new { htmlAttributes = new { @class = "form-control", Value = @Session["Adresse"].ToString() } })
+                            @Html.ValidationMessageFor(model => model.Adresse, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Postnr, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Postnr, new { htmlAttributes = new { @class = "form-control", Value = @Session["Postnr"].ToString() } })
+                            @Html.ValidationMessageFor(model => model.Postnr, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.By, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.By, new { htmlAttributes = new { @class = "form-control", Value = @Session["By"].ToString() } })
+                            @Html.ValidationMessageFor(model => model.By, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <p class="col-md-2 control-label"><b>Telefonnummer</b></p>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Telefon, new { htmlAttributes = new { @class = "form-control", Value = @Session["Telefon"].ToString() } })
+                            @Html.ValidationMessageFor(model => model.Telefon, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Land, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Land, new { htmlAttributes = new { @class = "form-control", Value = @Session["Land"].ToString() } })
+                            @Html.ValidationMessageFor(model => model.Land, "", new { @class = "text-danger" })
+                        </div>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <p class="col-md-2 control-label"><b>Efternavn</b></p>
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.EfterNavn, new { htmlAttributes = new { @class = "form-control", Value = "hej med dig" } })
+                <div class="col-sm-6">
+                    <h3>Valideringsoplsyninger</h3>
+                    <p>Herunder skal du verificere din identitet ved at indskrive din mail samt adgangskode til din mail, hvis ikke du er br.</p>
+                    <p>Derefter skal du trykke på knappen "Opdater Oplysninger".</p>
+                    <br />
+                    <div class="form-group">
+                        <p class="col-md-2 control-label"><b>Email</b></p>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Mail, new { htmlAttributes = new { @class = "form-control", Value = @Session["Mail"].ToString() } })
+                            @Html.ValidationMessageFor(model => model.Mail, "", new { @class = "text-danger" })
+                        </div>
                     </div>
+
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Adgangskode, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Adgangskode, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Adgangskode, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <br />
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input class="btnRød" type="submit" value="Gennemfør ordre" />
+                        </div>
+                    </div>
+
+
+                    <label class="text-danger">@Html.DisplayFor(model => model.LoginErrorMessage)</label>
                 </div>
 
+        </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Adresse, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Adresse, new { htmlAttributes = new { @class = "form-control", Value = @Session["Adresse"].ToString() } })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Postnr, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Postnr, new { htmlAttributes = new { @class = "form-control", Value = @Session["Postnr"].ToString() } })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.By, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.By, new { htmlAttributes = new { @class = "form-control", Value = @Session["By"].ToString() } })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <p class="col-md-2 control-label"><b>Telefonnummer</b></p>
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Telefon, new { htmlAttributes = new { @class = "form-control", Value = @Session["Telefon"].ToString() } })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Land, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Land, new { htmlAttributes = new { @class = "form-control", Value = @Session["Land"].ToString() } })
-                    </div>
-                </div>
-
-                <hr />
-                <h3>Valideringsoplsyninger</h3>
-                <p>Herunder skal du verificere din identitet ved at indskrive din mail samt adgangskode til din mail, hvis ikke du er br.</p>
-                <p>Derefter skal du trykke på knappen "Opdater Oplysninger".</p>
-                <br />
-                <div class="form-group">
-                    <p class="col-md-2 control-label"><b>Email</b></p>
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Mail, new { htmlAttributes = new { @class = "form-control", Value = @Session["Mail"].ToString() } })
-                    </div>
-                </div>
-
-
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Adgangskode, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Adgangskode, new { htmlAttributes = new { @class = "form-control" } })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input class="btnRød" type="submit" value="Gennemfør ordre" />
-                    </div>
-                </div>
-
-
-                <label class="text-danger">@Html.DisplayFor(model => model.LoginErrorMessage)</label>
-            </div>
+    </div>
         }
     </div>
-
+    <br />
 
 
 

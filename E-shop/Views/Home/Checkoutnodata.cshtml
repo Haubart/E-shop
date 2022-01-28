@@ -9,22 +9,26 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - My ASP.NET E_shop</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
     <link href="~/Content/Site.css" rel="stylesheet" />
-    <link href="~/Content/Login-pop-up-vindue.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+
+
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" />
     <link rel="stylesheet" href="~/Content/style.css" />
+    <link rel="stylesheet" href="~/Site.css" />
+    <link rel="stylesheet" href="~/Content/Login-pop-up-vindue.css" />
 </head>
 <body>
-
     <nav class="navbar navbar-inverse navbar-fixed-top navbar-expand-sm" style="background-color: white; width: 1000px; margin: auto; height: 80px; border-right: solid; border-left: solid; border-bottom: solid;">
         <div class="container">
             <div class="navbar-header">
@@ -50,114 +54,91 @@
 
 
     <div class="container body-content">
-        <h1>Velkommen til checkout</h1>
-        <h2>Nu er du færdig, tak for dit køb ved LightningTech</h2>
+        <h1>Checkout</h1>
+
 
 
         @using (Html.BeginForm())
         {
-            <div class="form-horizontal">
-                <h1>Min profil</h1>
-                <hr />
-                <h3>Dine personoplsyninger</h3>
-                <p>Herunder kan du se dine personoplysninger du gav, da du oprettede dig som bruger hos LightningTech.</p>
-                <p>For at ændre i dine personoplysniger skal alle felter være angivet, også selvom den nye oplsyning er identisk med den tidligere.</p>
-                <p>Du kan lave om i alle oplysninger undtagen din Email og adgangskode.</p>
-                <p>Din Email og adgangskode skal stadig skrives ind sammen med alle de andre nye oplsyninger, men som valideringsoplsyninger.</p>
-                <br />
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="form-group">
-                    <p class="col-md-2 control-label"><b>Fornavn</b></p>
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.ForNavn, new { htmlAttributes = new { @class = "form-control" } })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <p class="col-md-2 control-label"><b>Efternavn</b></p>
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.EfterNavn, new { htmlAttributes = new { @class = "form-control" } })
-                    </div>
-                </div>
+    <div class="form-horizontal">
+        <hr />
 
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Adresse, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Adresse, new { htmlAttributes = new { @class = "form-control" } })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Postnr, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Postnr, new { htmlAttributes = new { @class = "form-control" } })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.By, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.By, new { htmlAttributes = new { @class = "form-control" } })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <p class="col-md-2 control-label"><b>Telefonnummer</b></p>
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Telefon, new { htmlAttributes = new { @class = "form-control" } })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Land, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Land, new { htmlAttributes = new { @class = "form-control" } })
-                    </div>
-                </div>
-
-                <hr />
-                <h3>Valideringsoplsyninger</h3>
-                <p>For at kunne opdatere dine personoplysninger skal du indskrive din Email og adgangskode som validering for at det er dig.</p>
-                <p>Derefter skal du trykke på knappen "Opdater Oplysninger".</p>
-                <br />
-                <div class="form-group">
-                    <p class="col-md-2 control-label"><b>Email</b></p>
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Mail, new { htmlAttributes = new { @class = "form-control" } })
-                    </div>
-                </div>
-
-
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Adgangskode, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Adgangskode, new { htmlAttributes = new { @class = "form-control" } })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input class="btnRød" type="submit" value="Opdater Oplysninger" />
-                    </div>
-                </div>
-
-
-                <label class="text-danger">@Html.DisplayFor(model => model.LoginErrorMessage)</label>
+        <h3>Dine personoplsyninger</h3>
+        <p>For at fuldføre dit køb hos LightningTech skal du blot udfylde dine personoplysninger.</p>
+        <p>Er du logget ind på forhånd er alle oplysninger indskrevet på forhånd, og du skal dermed kun verificere dig med din adgangskode under valideringsoplysninger.</p>
+        <br />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <p class="col-md-2 control-label"><b>Fornavn</b></p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ForNavn, new { htmlAttributes = new { @class = "form-control" } })
             </div>
-        }
+        </div>
+
+        <div class="form-group">
+            <p class="col-md-2 control-label"><b>Efternavn</b></p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EfterNavn, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Adresse, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Adresse, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Postnr, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Postnr, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.By, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.By, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p class="col-md-2 control-label"><b>Telefonnummer</b></p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Telefon, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Land, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Land, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <br />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input class="btnRød" type="submit" value="Gennemfør ordre" />
+            </div>
+        </div>
+
     </div>
 
 
-    
+
+
+        }
+    </div>
+    <br />
 
 
 
 
-
-
-    <div class="footer-dark footerb">
+    <div style="height: 410px;" class="footer-dark">
         <footer>
             <div class="container">
                 <div class="row">
@@ -202,6 +183,12 @@
             </div>
         </footer>
     </div>
+
+
+
+
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -209,4 +196,3 @@
     @Scripts.Render("~/bundles/bootstrap")
 </body>
 </html>
-

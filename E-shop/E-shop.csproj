@@ -254,13 +254,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Opret.cshtml" />
     <Content Include="Views\Home\Support.cshtml" />
-    <Content Include="Views\Home\Kurv.cshtml" />
-    <Content Include="Views\Home\Test.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\efterLogin.cshtml" />
     <Content Include="Views\Home\Profil.cshtml" />
@@ -271,6 +266,7 @@
     <Content Include="Views\Shopping\ShoppingCart.cshtml" />
     <Content Include="Views\Home\Checkoutdata.cshtml" />
     <Content Include="Views\Home\Checkoutnodata.cshtml" />
+    <Content Include="Views\Home\KøbGennemført.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />
