@@ -149,7 +149,7 @@ namespace E_shop.Controllers
             {
                  var brugerOplysninger = db.Bruger.Where(x => x.Mail == nyModel.Mail && x.Adgangskode == nyModel.Adgangskode && x.ForNavn == nyModel.ForNavn && x.EfterNavn == nyModel.EfterNavn && x.Adresse == nyModel.Adresse && x.Postnr == nyModel.Postnr && x.By == nyModel.By && x.Telefon == nyModel.Telefon && x.Land == nyModel.Land).FirstOrDefault();
 
-                string dinmor = nyModel.ForNavn;
+                string Fornavn = nyModel.ForNavn;
                 string EfterNavn = nyModel.EfterNavn;
                 string Adresse = nyModel.Adresse;
                 string Postnr = nyModel.Postnr;
@@ -159,9 +159,7 @@ namespace E_shop.Controllers
                 string Mail = nyModel.Mail;
                 string Adgangskode = nyModel.Adgangskode;
 
-
-
-                if (brugerOplysninger == null || (dinmor == null && EfterNavn == null && Adresse == null && Postnr == null && By == null && Telefon == null && Land == null && Mail == null && Adgangskode == null))
+                if (brugerOplysninger == null || (Fornavn == null && EfterNavn == null && Adresse == null && Postnr == null && By == null && Telefon == null && Land == null && Mail == null && Adgangskode == null))
                 {
                     nyModel.LoginErrorMessage = "Kunne ikke gennemføre købet grundet forkert Email eller adgangskode og, eller grundet manglende eller forkerte informationer";
                     return View("Checkoutdata", nyModel);
@@ -179,16 +177,25 @@ namespace E_shop.Controllers
         {
             using (DatabaseEntities db = new DatabaseEntities())
             {
-                var ingenOplysninger = db.Bruger.Where(x => x.ForNavn == null || x.EfterNavn == null || x.Adresse == null || x.Postnr == null || x.By == null || x.Telefon == null || x.Land == null || x.Mail == null).FirstOrDefault();
-                if (ingenOplysninger == null)
-                {
-                    return View("KøbGennemført");
-                }
-                else
+                string Fornavn = nyModel.ForNavn;
+                string EfterNavn = nyModel.EfterNavn;
+                string Adresse = nyModel.Adresse;
+                string Postnr = nyModel.Postnr;
+                string By = nyModel.By;
+                string Telefon = nyModel.Telefon;
+                string Land = nyModel.Land;
+                string Mail = nyModel.Mail;
+                string Adgangskode = nyModel.Adgangskode;
+
+                if (Fornavn == null && EfterNavn == null && Adresse == null && Postnr == null && By == null && Telefon == null && Land == null && Mail == null && Adgangskode == null)
                 {
                     nyModel.LoginErrorMessage = "Kunne ikke gennemføre købet grundet manglende informationer";
                     return View("Checkoutnodata", nyModel);
-                    
+                }
+                else
+                {
+                    return View("KøbGennemført");
+
                 }
             }
         }
