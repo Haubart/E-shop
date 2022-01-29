@@ -56,7 +56,7 @@ namespace E_shop.Controllers
             }
         }
 
-        //Denne actionresult køres når man trykker på logud knappen Profil siden. Den afslutter sessionen for brugeren og redirecter brugeren til Login siden.
+        //Denne actionresult køres når man trykker på logud knappen Profil siden, eller andre steder på hjemmesiden. Den afslutter sessionen for brugeren og redirecter brugeren til Login siden.
         public ActionResult LogOut()
         {
             Session.Abandon();
@@ -92,9 +92,9 @@ namespace E_shop.Controllers
                     nyModel.LoginErrorMessage = "Kunne ikke opdatere oplysninger grundet forkert Email eller adgangskode";
                     return View("Profil", nyModel);
                 }
-                //Hvis "brugerOplysninger" ikke er lig med null og man derfor har skrevet dem korrekt ind samt skrevet sine nye oplysninger ind, så vil man de blive opdateret i databasen herunder
-                //De vi sætter nemlig vores "brugerOplysninger" lig med hver af de værdier der er står indskrevet i formen fra viewet som nyModel indeholder.
-                //Herefter gemmer vi ændringerne og der returneres viewet "OpdateringAfOplysninger".
+                //Hvis "brugerOplysninger" ikke er lig med null og man derfor har skrevet dem korrekt ind samt skrevet sine nye oplysninger ind, så vil de blive opdateret i databasen herunder
+                //Vi sætter nemlig vores "brugerOplysninger" lig med hver af de værdier der er står indskrevet i formen fra viewet som nyModel indeholder.
+                //Herefter gemmer vi ændringerne og viewet "OpdateringAfOplysninger" returneres.
                 else
                 {
                     brugerOplysninger.ForNavn = nyModel.ForNavn;
